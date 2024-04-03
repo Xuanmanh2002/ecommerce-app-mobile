@@ -30,6 +30,14 @@ const orderSchema = new mongoose.Schema({
                 type: String,
                 required: true,
             },
+            detail: {
+                type: String,
+                required: true,
+            },
+            description: {
+                type: String,
+                required: true,
+            }
         },
     ],
     totalPrice: {

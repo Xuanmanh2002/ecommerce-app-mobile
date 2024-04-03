@@ -59,7 +59,7 @@ export default function Login() {
                 console.log(response);
                 const token = response.data.token;
                 AsyncStorage.setItem("authToken", token);
-                navigation.replace("Home"); 
+                navigation.replace("Tab"); 
             })
             .catch((error) => {
                 Alert.alert("Lỗi đăng nhập", "Email hoặc mật khẩu không đúng"); 
