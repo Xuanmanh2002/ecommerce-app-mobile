@@ -27,11 +27,7 @@ export default function StackNavigator() {
             tabBarLabelStyle: { color: "#008E97" },
             headerShown: false,
             tabBarIcon: ({ focused }) =>
-              focused ? (
-                <AntDesign name="home" size={24} color="black" />
-              ) : (
-                <AntDesign name="home" size={24} color="black" />
-              ),
+              <AntDesign name="home" size={24} color={focused ? "tomato" : "black"} />,
           }}
         />
 
@@ -43,11 +39,7 @@ export default function StackNavigator() {
             tabBarLabelStyle: { color: "#008E97" },
             headerShown: false,
             tabBarIcon: ({ focused }) =>
-              focused ? (
-                <MaterialCommunityIcons name="shopping-outline" size={24} color="black" />
-              ) : (
-                <MaterialCommunityIcons name="shopping-outline" size={24} color="black" />
-              ),
+              <MaterialCommunityIcons name="shopping-outline" size={24} color={focused ? "tomato" : "black"} />,
           }}
         />
         <Tab.Screen
@@ -58,11 +50,7 @@ export default function StackNavigator() {
             tabBarLabelStyle: { color: "#008E97" },
             headerShown: false,
             tabBarIcon: ({ focused }) =>
-              focused ? (
-                <MaterialCommunityIcons name="bell-outline" size={24} color="black" />
-              ) : (
-                <MaterialCommunityIcons name="bell-outline" size={24} color="black" />
-              ),
+              <MaterialCommunityIcons name="bell-outline" size={24} color={focused ? "tomato" : "black"} />,
           }}
         />
         <Tab.Screen
@@ -73,11 +61,7 @@ export default function StackNavigator() {
             tabBarLabelStyle: { color: "#008E97" },
             headerShown: false,
             tabBarIcon: ({ focused }) =>
-              focused ? (
-                <MaterialCommunityIcons name="account-circle-outline" size={28} color="black" />
-              ) : (
-                <MaterialCommunityIcons name="account-circle-outline" size={28} color="black" />
-              ),
+              <MaterialCommunityIcons name="account-circle-outline" size={28} color={focused ? "tomato" : "black"} />,
           }}
         />
       </Tab.Navigator>
@@ -95,4 +79,5 @@ export default function StackNavigator() {
     </NavigationContainer>
   );
 };
+
 
