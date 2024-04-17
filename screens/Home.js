@@ -21,6 +21,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 const screenWidth = Dimensions.get("window").width;
 const screenHeight = Dimensions.get("window").height;
+import axios from "axios";
 
 
 
@@ -41,9 +42,19 @@ export default function Home() {
   const offers = [
   ];
 
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get("https://fakestoreapi.com/products");
+  //       setProducts(response.data);
+  //     } catch (error) {
+  //       console.log("Thông báo lỗi", error);
+  //     }
+  //   }
 
-  
+  //   fetchData();
+  // }, [])
   return (
     <>
       <SafeAreaView
@@ -130,7 +141,7 @@ export default function Home() {
               height: 47,
               justifyContent: 'center',
             }}>
-              <Text style={{ marginLeft: 12, color: 'tomato', fontSize: 18, fontWeight: 'bold' }}>GỢI Ý HÔM NAY</Text>
+              <Text style={{ marginLeft: 12, color: 'tomato', fontSize: 17, fontWeight: 'bold' }}>GỢI Ý HÔM NAY</Text>
             </View>
             <View style={{
               marginTop: 10,

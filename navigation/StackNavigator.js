@@ -8,6 +8,7 @@ import Register from "../screens/Register";
 import Home from "../screens/Home";
 import Cart from "../screens/Cart";
 import ShoppingMall from "../screens/ShoppingMall";
+import Notify from "../screens/Notify";
 import { Feather } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
@@ -44,7 +45,7 @@ export default function StackNavigator() {
         />
         <Tab.Screen
           name="Notify"
-          component={ShoppingMall}
+          component={Notify}
           options={{
             tabBarLabel: "Thông báo",
             tabBarLabelStyle: { color: "#008E97" },
