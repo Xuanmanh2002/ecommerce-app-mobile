@@ -158,13 +158,93 @@ export default function ShoppingMall() {
     ];
 
     const images = [
-        "https://img.etimg.com/thumb/msid-93051525,width-1070,height-580,imgsize-2243475,overlay-economictimes/photo.jpg",
-        "https://images-eu.ssl-images-amazon.com/images/G/31/img22/Wireless/devjyoti/PD23/Launches/Updated_ingress1242x550_3.gif",
-        "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Books/BB/JULY/1242x550_Header-BB-Jul23.jpg",
+        "https://cf.shopee.vn/file/vn-50009109-53226b3229b5929212a702d966c211c6_xxhdpi",
+        "https://cf.shopee.vn/file/vn-50009109-9f55e03457f53c21641e034794aa44a0_xxhdpi",
+        "https://cf.shopee.vn/file/vn-50009109-1ba43290f7c65109a0832438454960bb_xxhdpi",
+        "https://cf.shopee.vn/file/vn-50009109-1ba43290f7c65109a0832438454960bb_xxhdpi",
     ];
 
     const deals = [
+        {
+            id: "01",
+            title: "Kem Nền Mịn Nhẹ Kiềm Dầu Fit Me Maybelline Matte Poreless Foundation 30ml",
+            oldPrice: 288000,
+            price: 288000 * (1 - 10 / 100), // Giảm giá 10%
+            image: "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-ltg8irqlp7r7d0",
+            carouselImages: [
+                "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lu5tq8vzcudlf1",
+                "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lu5tq8y7azw3dc",
+                "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lu5tq9eklmpaf4",
+                "https://cf.shopee.vn/file/vn-50009109-4e849705f16bb65ccb2f651dcdf8c656_xxhdpi",
+            ],
+            discount: "10",
+            statistic: "972",
+        },
+        {
+            id: "02",
+            title: "Quần dài thể thao nam thời trang đường phố Âu Mỹ",
+            oldPrice: 253000,
+            price: 253000 * (1 - 30 / 100), // Giảm giá 15%
+            image: "https://down-vn.img.susercontent.com/file/cn-11134211-7r98o-lq4kq08kumgl20",
+            carouselImages: [
+                "https://down-vn.img.susercontent.com/file/sg-11134201-7qvg3-lj52qhim5qddad",
+                "https://down-vn.img.susercontent.com/file/cn-11134207-7qukw-lj4xu6midncm7b",
+                "https://down-vn.img.susercontent.com/file/cn-11134207-7qukw-lj4xu6mif1x220",
+                "https://down-vn.img.susercontent.com/file/cn-11134207-7qukw-lj4xu6mic8s617",
+            ],
+            discount: "30",
+            statistic: "121",
+        },
+        {
+            id: "03",
+            title: "Áo Thun Nam Nữ Sturgis Phối Chỉ Line, Áo Phông Unisex Cotton Phong Cách Hàn Quốc - AT02 𝐅𝐫𝐞𝐝𝐨 𝐌𝐞𝐧𝐰𝐞𝐚𝐫",
+            oldPrice: 300000,
+            price: 300000 * (1 - 0 / 100), // Giảm giá 15%
+            image: "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lqg35oaiakvrb5",
+            carouselImages: [
+                "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lqg35oai96bbdd",
+                "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lqg35oai7rqvcc",
+                "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lqg35oaij0af01",
+                "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lqg35oaiesl3a8",
+            ],
+            discount: "",
+            statistic: "249",
+        },
+
+        {
+            id: "04",
+            title: "WORTHBUYGiỏ khung sắt WORTHBUT đựng quần áo bẩn / đồ dùng bằng cotton lanh chống thấm nước tiện dụng",
+            oldPrice: 152000,
+            price: 152000 * (1 - 15 / 100), // Giảm giá 15%
+            image: "https://down-vn.img.susercontent.com/file/cn-11134211-7r98o-llbh1sllbpqsc3",
+            carouselImages: [
+                "https://down-vn.img.susercontent.com/file/sg-11134201-23030-vsesd2x5nfov09",
+                "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lu5tq8y7azw3dc",
+                "https://down-vn.img.susercontent.com/file/sg-11134201-23020-2blxhwlvzwnv04",
+                "https://down-vn.img.susercontent.com/file/sg-11134201-23020-xy458v9dcynv01",
+            ],
+            discount: "15",
+            statistic: "1700",
+        },
+        {
+            id: "05",
+            title: "Quần Dài Ống Rộng Kẻ Sọc Thời Trang Nam Tính",
+            oldPrice: 300000,
+            price: 300000 * (1 - 15 / 100), // Giảm giá 15%
+            image: "https://down-vn.img.susercontent.com/file/sg-11134201-7qvdz-ljmfkpqtam3a13",
+            carouselImages: [
+                "https://down-vn.img.susercontent.com/file/sg-11134201-7qve1-ljksspd875dx43",
+                "https://down-vn.img.susercontent.com/file/sg-11134201-7qvdp-ljkssq5t5j1w80",
+                "https://down-vn.img.susercontent.com/file/sg-11134201-7qvf5-ljkssprxlmevf8",
+                "https://down-vn.img.susercontent.com/file/sg-11134201-7qvec-ljkssr33olt78c",
+            ],
+            discount: "15",
+            statistic: "24",
+        },
+
     ];
+
+
 
     const offers = [
     ];
@@ -286,7 +366,7 @@ export default function ShoppingMall() {
                         }}>
                             <Image
                                 source={{
-                                    uri: "https://magiamgia.com/wp-content/uploads/2023/07/Shopee-sale-15.7-1.jpg"
+                                    uri: "https://cf.shopee.vn/file/vn-50009109-9ea240aa6ff8a00436e926e9eac2206c_xhdpi"
                                 }}
                                 style={{
                                     width: "100%",
@@ -367,314 +447,65 @@ export default function ShoppingMall() {
                             }}>
                                 <Text style={{ marginLeft: 12, color: 'tomato', fontSize: 17, fontWeight: 'bold' }}>GỢI Ý HÔM NAY</Text>
                             </View>
-                            <View style={{ marginHorizontal: 8, }}>
-                                <View style={{ flexDirection: 'row' }}>
-                                    <TouchableOpacity style={{ marginRight: 7, flex: 1, backgroundColor: 'white' }}>
-                                        <Image
-                                            style={{ marginTop: 10, width: 190, height: 190 }}
-                                            source={require("../assets/giay-cho-cho.jpg")}
-                                        />
-                                        <Text style={{ marginTop: 10, marginLeft: 8, fontSize: 17 }} numberOfLines={2}>Giày đi bộ cho chó lớn bảo vệ chân</Text>
-                                        <View style={{
-                                            marginTop: 10,
-                                            flex: 1,
-                                            flexDirection: 'row',
-                                            justifyContent: 'center',
-                                            alignItems: 'center',
-                                            backgroundColor: 'tomato',
-                                            width: 74,
-                                            height: 30,
-                                            marginLeft: 8,
-                                            borderWidth: 1, // Độ dày của đường viền
-                                            borderColor: 'transparent', // Màu của đường viền (trong trường hợp này, là màu của nền để tạo ra hiệu ứng răng cưa)
-                                            borderTopLeftRadius: 4, // Bán kính của các góc
-                                            borderTopRightRadius: 10,
-                                            borderBottomLeftRadius: 10,
-                                            borderBottomRightRadius: 4
-                                        }}>
-                                            <Text style={{
-                                                fontSize: 15,
-                                                color: 'white'
-                                            }}>11% Giảm</Text>
-                                        </View>
-                                        <View style={{
-                                            marginTop: 10,
-                                            marginLeft: 10
-                                        }}>
-                                            <Text style={{ fontSize: 17, color: 'tomato' }}>94.000 đ</Text>
-                                        </View>
-                                    </TouchableOpacity>
-                                    <TouchableOpacity style={{ marginLeft: 7, flex: 1, backgroundColor: 'white' }}>
-                                        <Image
-                                            style={{ marginTop: 10, width: 190, height: 190 }}
-                                            source={require("../assets/giay-cho-cho.jpg")}
-                                        />
-                                        <Text style={{ marginTop: 10, marginLeft: 8, fontSize: 17 }} numberOfLines={2}>Giày đi bộ cho chó lớn bảo vệ chân</Text>
-                                        <View style={{
-                                            marginTop: 10,
-                                            flex: 1,
-                                            flexDirection: 'row',
-                                            justifyContent: 'center',
-                                            alignItems: 'center',
-                                            backgroundColor: 'tomato',
-                                            width: 74,
-                                            height: 30,
-                                            marginLeft: 8,
-                                            borderWidth: 1, // Độ dày của đường viền
-                                            borderColor: 'transparent', // Màu của đường viền (trong trường hợp này, là màu của nền để tạo ra hiệu ứng răng cưa)
-                                            borderTopLeftRadius: 4, // Bán kính của các góc
-                                            borderTopRightRadius: 10,
-                                            borderBottomLeftRadius: 10,
-                                            borderBottomRightRadius: 4
-                                        }}>
-                                            <Text style={{
-                                                fontSize: 15,
-                                                color: 'white'
-                                            }}>11% Giảm</Text>
-                                        </View>
-                                        <View style={{
-                                            marginTop: 10,
-                                            marginLeft: 10
-                                        }}>
-                                            <Text style={{ fontSize: 17, color: 'tomato' }}>94.000 đ</Text>
-                                        </View>
-                                    </TouchableOpacity>
-                                </View>
-                            </View>
-                            <View style={{
-                                marginTop: 10,
-                            }}>
-                                <View style={{ marginHorizontal: 8, }}>
-                                    <View style={{ flexDirection: 'row' }}>
-                                        <TouchableOpacity style={{ marginRight: 7, flex: 1, backgroundColor: 'white' }}>
-                                            <Image
-                                                style={{ marginTop: 10, width: 190, height: 190 }}
-                                                source={require("../assets/giay-cho-cho.jpg")}
-                                            />
-                                            <Text style={{ marginTop: 10, marginLeft: 8, fontSize: 17 }} numberOfLines={2}>Giày đi bộ cho chó lớn bảo vệ chân</Text>
-                                            <View style={{
-                                                marginTop: 10,
-                                                flex: 1,
-                                                flexDirection: 'row',
-                                                justifyContent: 'center',
-                                                alignItems: 'center',
-                                                backgroundColor: 'tomato',
-                                                width: 74,
-                                                height: 30,
-                                                marginLeft: 8,
-                                                borderWidth: 1, // Độ dày của đường viền
-                                                borderColor: 'transparent', // Màu của đường viền (trong trường hợp này, là màu của nền để tạo ra hiệu ứng răng cưa)
-                                                borderTopLeftRadius: 4, // Bán kính của các góc
-                                                borderTopRightRadius: 10,
-                                                borderBottomLeftRadius: 10,
-                                                borderBottomRightRadius: 4
-                                            }}>
-                                                <Text style={{
-                                                    fontSize: 15,
-                                                    color: 'white'
-                                                }}>11% Giảm</Text>
-                                            </View>
-                                            <View style={{
-                                                marginTop: 10,
-                                                marginLeft: 10
-                                            }}>
-                                                <Text style={{ fontSize: 17, color: 'tomato' }}>94.000 đ</Text>
-                                            </View>
-                                        </TouchableOpacity>
-                                        <TouchableOpacity style={{ marginLeft: 7, flex: 1, backgroundColor: 'white' }}>
-                                            <Image
-                                                style={{ marginTop: 10, width: 190, height: 190 }}
-                                                source={require("../assets/giay-cho-cho.jpg")}
-                                            />
-                                            <Text style={{ marginTop: 10, marginLeft: 8, fontSize: 17 }} numberOfLines={2}>Giày đi bộ cho chó lớn bảo vệ chân</Text>
-                                            <View style={{
-                                                marginTop: 10,
-                                                flex: 1,
-                                                flexDirection: 'row',
-                                                justifyContent: 'center',
-                                                alignItems: 'center',
-                                                backgroundColor: 'tomato',
-                                                width: 74,
-                                                height: 30,
-                                                marginLeft: 8,
-                                                borderWidth: 1, // Độ dày của đường viền
-                                                borderColor: 'transparent', // Màu của đường viền (trong trường hợp này, là màu của nền để tạo ra hiệu ứng răng cưa)
-                                                borderTopLeftRadius: 4, // Bán kính của các góc
-                                                borderTopRightRadius: 10,
-                                                borderBottomLeftRadius: 10,
-                                                borderBottomRightRadius: 4
-                                            }}>
-                                                <Text style={{
-                                                    fontSize: 15,
-                                                    color: 'white'
-                                                }}>11% Giảm</Text>
-                                            </View>
-                                            <View style={{
-                                                marginTop: 10,
-                                                marginLeft: 10
-                                            }}>
-                                                <Text style={{ fontSize: 17, color: 'tomato' }}>94.000 đ</Text>
-                                            </View>
-                                        </TouchableOpacity>
-                                    </View>
-                                </View>
-                                <View style={{
-                                    marginTop: 10,
-                                }}>
-                                    <View style={{ marginHorizontal: 8, }}>
-                                        <View style={{ flexDirection: 'row' }}>
-                                            <TouchableOpacity style={{ marginRight: 7, flex: 1, backgroundColor: 'white' }}>
+                            <View style={{ marginHorizontal: 8, marginBottom: 20 }}>
+                                {deals.reduce((rows, item, idx) => {
+                                    if (idx % 2 === 0) {
+                                        rows.push([item]);
+                                    } else {
+                                        rows[rows.length - 1].push(item);
+                                    }
+                                    return rows;
+                                }, []).map((row, rowIndex) => (
+                                    <View key={rowIndex} style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                                        {row.map((item, itemIndex) => (
+                                            <TouchableOpacity key={itemIndex} style={{ marginRight: 7, marginBottom: 10, flex: 1, backgroundColor: 'white' }}>
                                                 <Image
                                                     style={{ marginTop: 10, width: 190, height: 190 }}
-                                                    source={require("../assets/giay-cho-cho.jpg")}
+                                                    source={{ uri: item?.image }}
                                                 />
-                                                <Text style={{ marginTop: 10, marginLeft: 8, fontSize: 17 }} numberOfLines={2}>Giày đi bộ cho chó lớn bảo vệ chân</Text>
-                                                <View style={{
-                                                    marginTop: 10,
-                                                    flex: 1,
-                                                    flexDirection: 'row',
-                                                    justifyContent: 'center',
-                                                    alignItems: 'center',
-                                                    backgroundColor: 'tomato',
-                                                    width: 74,
-                                                    height: 30,
-                                                    marginLeft: 8,
-                                                    borderWidth: 1, // Độ dày của đường viền
-                                                    borderColor: 'transparent', // Màu của đường viền (trong trường hợp này, là màu của nền để tạo ra hiệu ứng răng cưa)
-                                                    borderTopLeftRadius: 4, // Bán kính của các góc
-                                                    borderTopRightRadius: 10,
-                                                    borderBottomLeftRadius: 10,
-                                                    borderBottomRightRadius: 4
-                                                }}>
-                                                    <Text style={{
-                                                        fontSize: 15,
-                                                        color: 'white'
-                                                    }}>11% Giảm</Text>
-                                                </View>
-                                                <View style={{
-                                                    marginTop: 10,
-                                                    marginLeft: 10
-                                                }}>
-                                                    <Text style={{ fontSize: 17, color: 'tomato' }}>94.000 đ</Text>
-                                                </View>
-                                            </TouchableOpacity>
-                                            <TouchableOpacity style={{ marginLeft: 7, flex: 1, backgroundColor: 'white' }}>
-                                                <Image
-                                                    style={{ marginTop: 10, width: 190, height: 190 }}
-                                                    source={require("../assets/giay-cho-cho.jpg")}
-                                                />
-                                                <Text style={{ marginTop: 10, marginLeft: 8, fontSize: 17 }} numberOfLines={2}>Giày đi bộ cho chó lớn bảo vệ chân</Text>
-                                                <View style={{
-                                                    marginTop: 10,
-                                                    flex: 1,
-                                                    flexDirection: 'row',
-                                                    justifyContent: 'center',
-                                                    alignItems: 'center',
-                                                    backgroundColor: 'tomato',
-                                                    width: 74,
-                                                    height: 30,
-                                                    marginLeft: 8,
-                                                    borderWidth: 1, // Độ dày của đường viền
-                                                    borderColor: 'transparent', // Màu của đường viền (trong trường hợp này, là màu của nền để tạo ra hiệu ứng răng cưa)
-                                                    borderTopLeftRadius: 4, // Bán kính của các góc
-                                                    borderTopRightRadius: 10,
-                                                    borderBottomLeftRadius: 10,
-                                                    borderBottomRightRadius: 4
-                                                }}>
-                                                    <Text style={{
-                                                        fontSize: 15,
-                                                        color: 'white'
-                                                    }}>11% Giảm</Text>
-                                                </View>
-                                                <View style={{
-                                                    marginTop: 10,
-                                                    marginLeft: 10
-                                                }}>
-                                                    <Text style={{ fontSize: 17, color: 'tomato' }}>94.000 đ</Text>
-                                                </View>
-                                            </TouchableOpacity>
-                                        </View>
-                                    </View>
-                                    <View style={{
-                                        marginTop: 10,
-                                    }}>
-                                        <View style={{ marginHorizontal: 8, }}>
-                                            <View style={{ flexDirection: 'row' }}>
-                                                <TouchableOpacity style={{ marginRight: 7, flex: 1, backgroundColor: 'white' }}>
-                                                    <Image
-                                                        style={{ marginTop: 10, width: 190, height: 190 }}
-                                                        source={require("../assets/giay-cho-cho.jpg")}
-                                                    />
-                                                    <Text style={{ marginTop: 10, marginLeft: 8, fontSize: 17 }} numberOfLines={2}>Giày đi bộ cho chó lớn bảo vệ chân</Text>
+                                                <Text style={{ marginTop: 10, marginLeft: 8, fontSize: 17 }} numberOfLines={2}>{item.title.substring(0, 50)}</Text>
+                                                {item.discount !== "" && (
                                                     <View style={{
                                                         marginTop: 10,
-                                                        flex: 1,
                                                         flexDirection: 'row',
                                                         justifyContent: 'center',
                                                         alignItems: 'center',
                                                         backgroundColor: 'tomato',
-                                                        width: 74,
+                                                        width: 80,
                                                         height: 30,
                                                         marginLeft: 8,
-                                                        borderWidth: 1, // Độ dày của đường viền
-                                                        borderColor: 'transparent', // Màu của đường viền (trong trường hợp này, là màu của nền để tạo ra hiệu ứng răng cưa)
-                                                        borderTopLeftRadius: 4, // Bán kính của các góc
+                                                        borderWidth: 1,
+                                                        borderColor: 'transparent',
+                                                        borderTopLeftRadius: 4,
                                                         borderTopRightRadius: 10,
                                                         borderBottomLeftRadius: 10,
-                                                        borderBottomRightRadius: 4
+                                                        borderBottomRightRadius: 4,
+                                                        marginBottom: 8
                                                     }}>
-                                                        <Text style={{
-                                                            fontSize: 15,
-                                                            color: 'white'
-                                                        }}>11% Giảm</Text>
+                                                        <Text style={{ fontSize: 15, color: 'white' }}>{item.discount}% Giảm</Text>
                                                     </View>
-                                                    <View style={{
-                                                        marginTop: 10,
-                                                        marginLeft: 10
-                                                    }}>
-                                                        <Text style={{ fontSize: 17, color: 'tomato' }}>94.000 đ</Text>
-                                                    </View>
-                                                </TouchableOpacity>
-                                                <TouchableOpacity style={{ marginLeft: 7, flex: 1, backgroundColor: 'white' }}>
-                                                    <Image
-                                                        style={{ marginTop: 10, width: 190, height: 190 }}
-                                                        source={require("../assets/giay-cho-cho.jpg")}
-                                                    />
-                                                    <Text style={{ marginTop: 10, marginLeft: 8, fontSize: 17 }} numberOfLines={2}>Giày đi bộ cho chó lớn bảo vệ chân</Text>
-                                                    <View style={{
-                                                        marginTop: 10,
-                                                        flex: 1,
-                                                        flexDirection: 'row',
-                                                        justifyContent: 'center',
-                                                        alignItems: 'center',
-                                                        backgroundColor: 'tomato',
-                                                        width: 74,
-                                                        height: 30,
-                                                        marginLeft: 8,
-                                                        borderWidth: 1, // Độ dày của đường viền
-                                                        borderColor: 'transparent', // Màu của đường viền (trong trường hợp này, là màu của nền để tạo ra hiệu ứng răng cưa)
-                                                        borderTopLeftRadius: 4, // Bán kính của các góc
-                                                        borderTopRightRadius: 10,
-                                                        borderBottomLeftRadius: 10,
-                                                        borderBottomRightRadius: 4
-                                                    }}>
-                                                        <Text style={{
-                                                            fontSize: 15,
-                                                            color: 'white'
-                                                        }}>11% Giảm</Text>
-                                                    </View>
-                                                    <View style={{
-                                                        marginTop: 10,
-                                                        marginLeft: 10
-                                                    }}>
-                                                        <Text style={{ fontSize: 17, color: 'tomato' }}>94.000 đ</Text>
-                                                    </View>
-                                                </TouchableOpacity>
-                                            </View>
-                                        </View>
+                                                )}
+
+                                                <View style={{
+                                                    marginTop: 'auto',
+                                                    marginLeft: 10,
+                                                    marginBottom: 10,
+                                                    flexDirection: 'row'
+                                                }}>
+                                                    <Text style={{ fontSize: 15, color: 'tomato' }}>{Math.floor(item.price).toLocaleString('vi-VN')} VNĐ</Text>
+                                                    <Text style={{ fontSize: 13, color: 'black', marginLeft: 10 }}>Đã bán {item.statistic}</Text>
+                                                </View>
+                                            </TouchableOpacity>
+                                        ))}
+                                        {/* Nếu chỉ có 1 sản phẩm trên hàng, hiển thị text ngắn với màu nền lightgray */}
+                                        {row.length === 1 && (
+                                            <TouchableOpacity style={{ marginRight: 7, marginBottom: 10, flex: 1, backgroundColor: '#F8F8F8' }}>
+                                            </TouchableOpacity>
+                                        )}
                                     </View>
-                                </View>
+                                ))}
                             </View>
+
                         </View>
                     </View>
                 </ScrollView>
