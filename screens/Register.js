@@ -61,7 +61,7 @@ export default function Login() {
 
     // Thêm http:// hoặc https:// vào đầu URL
     axios
-      .post("http://172.25.61.64:8000/register", user)
+      .post("http://192.168.1.187:8000/register", user)
       .then((response) => {
         console.log(response);
         Alert.alert(

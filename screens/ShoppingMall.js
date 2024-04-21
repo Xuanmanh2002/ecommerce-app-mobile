@@ -14,7 +14,7 @@ import {
     Dimensions,
     Button,
 } from 'react-native'
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback, useContext } from 'react';
 import { SliderBox } from "react-native-image-slider-box";
 import { AntDesign } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -22,6 +22,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { EvilIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import ProductItem from "../components/ProductItem";
+
 const screenWidth = Dimensions.get("window").width;
 const screenHeight = Dimensions.get("window").height;
 import axios from "axios";
@@ -244,10 +246,23 @@ export default function ShoppingMall() {
 
     ];
 
-
-
     const offers = [
     ];
+
+    const [products, setProducts] = useState([]);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get("https://fakestoreapi.com/products");
+                setProducts(response.data);
+            } catch (error) {
+                console.log("thông báo lỗi", error);
+            }
+        };
+
+        fetchData();
+    }, []);
+    console.log("products", products)
     return (
         <>
             <SafeAreaView
@@ -359,7 +374,7 @@ export default function ShoppingMall() {
                             paddingBottom: 10,
                             backgroundColor: 'white',
                             width: "100%",
-                            height: 150, // Đặt chiều cao mới ở đây, ví dụ: 150 pixels
+                            height: 150,
                             flexDirection: 'row',
                             alignItems: 'center',
                             justifyContent: 'space-between',
@@ -435,6 +450,34 @@ export default function ShoppingMall() {
                                     ))}
                                 </View>
                             </ScrollView>
+                            <View>
+                                <TouchableOpacity style={{
+                                    paddingHorizontal: 10,
+                                    paddingBottom: 10,
+                                    backgroundColor: 'white',
+                                    width: "100%",
+                                    height: 150,
+                                    alignItems: 'center',
+                                    justifyContent: 'space-between',
+                                }}>
+                                    <Image
+                                        source={{
+                                            uri: "https://cf.shopee.vn/file/vn-50009109-4e849705f16bb65ccb2f651dcdf8c656_xhdpi"
+                                        }}
+                                        style={{
+                                            width: "100%",
+                                            height: "100%",
+                                            resizeMode: 'cover',
+                                            borderRadius: 10
+                                        }}
+                                    />
+                                </TouchableOpacity>
+                            </View>
+                            <ScrollView horizontal={true} style={{}}>
+                                {products?.map((item, index) => (
+                                    <ProductItem item={item} key={index} />
+                                ))}
+                            </ScrollView>
                         </View>
                         <View style={{
                             marginTop: 10,
@@ -505,7 +548,6 @@ export default function ShoppingMall() {
                                     </View>
                                 ))}
                             </View>
-
                         </View>
                     </View>
                 </ScrollView>
