@@ -27,137 +27,12 @@ import ProductItem from "../components/ProductItem";
 const screenWidth = Dimensions.get("window").width;
 const screenHeight = Dimensions.get("window").height;
 import axios from "axios";
+import { value } from 'deprecated-react-native-prop-types/DeprecatedTextInputPropTypes';
 
 
 
 export default function ShoppingMall() {
     const navigation = useNavigation();
-    const list = [
-        {
-            id: "0",
-            image: "https://img.pikbest.com/png-images/football-icon_5881725.png!sw800",
-            name: "Thể thao & du lịch",
-        },
-        {
-            id: "1",
-            image:
-                "https://img.pikbest.com/element_our/20230426/bg/67fa1d15a769a.png!sw800",
-            name: "Ô tô - xe máy - xe đạp",
-        },
-        {
-            id: "3",
-            image:
-                "https://cdn-icons-png.flaticon.com/512/1152/1152198.png",
-            name: "Bách hóa online",
-        },
-        {
-            id: "4",
-            image:
-                "https://cdn.tgdd.vn/ValueIcons/_Icon__No%CC%82%CC%80i_Co%CC%9Bm_MIni-removebg-preview.png",
-            name: "Nhà Cửa & Đời Sống",
-        },
-        {
-            id: "5",
-            image:
-                "https://cdn-icons-png.flaticon.com/512/2798/2798003.png",
-            name: "Sắc đẹp",
-        },
-        {
-            id: "6",
-            image: "https://cdn-icons-png.flaticon.com/512/428/428001.png",
-            name: "Máy tính & Laptop",
-        },
-        {
-            id: "7",
-            image: "https://cdn-icons-png.flaticon.com/512/1376/1376388.png",
-            name: "Voucher & Dịch vụ",
-        },
-        {
-            id: "8",
-            image: "https://png.pngtree.com/png-clipart/20230927/original/pngtree-digital-camera-png-image_13143250.png",
-            name: "Máy ảnh - Máy Quay Phim",
-        },
-        {
-            id: "9",
-            image: "https://e7.pngegg.com/pngimages/289/1/png-clipart-dresses-red-hanger.png",
-            name: "Thời Trang Nữ",
-        },
-        {
-            id: "10",
-            image: "https://cdn-icons-png.flaticon.com/512/3566/3566722.png",
-            name: "Túi Ví Nữ",
-        },
-        {
-            id: "11",
-            image: "https://png.pngtree.com/png-vector/20230822/ourmid/pngtree-woman-holding-baby-is-a-mother-icon-on-flat-colored-background-vector-png-image_6853121.png",
-            name: "Mẹ & Bé",
-        },
-        {
-            id: "12",
-            image: "https://png.pngtree.com/png-vector/20240322/ourmid/pngtree-pair-of-dog-bowls-with-dry-food-and-water-bowl-cartoon-png-image_12199337.png",
-            name: "Thú cưng",
-        },
-        {
-            id: "13",
-            image: "https://png.pngtree.com/png-vector/20230105/ourmid/pngtree-book-icon-vector-image-png-image_6552370.png",
-            name: "Nhà sách online",
-        },
-        {
-            id: "14",
-            image: "https://purepng.com/public/uploads/large/purepng.com-apple-iphone-xappleapple-iphonephonesmartphonemobile-devicetouch-screeniphone-xiphone-10electronicsobjects-2515306895701eqxj.png",
-            name: "Điện Thoại và Phụ Kiện",
-        },
-        {
-            id: "15",
-            image: "https://product.hstatic.net/1000112469/product/ptb376_31e23a7356944623806b56f6f4318287_grande.png",
-            name: "Phụ Kiện & Trang Sức Nữ",
-        },
-        {
-            id: "16",
-            image: "https://cdn.pnj.io/images/detailed/167/sp-wci00000829-dong-ho-citizen-nam-nh9130-84l-day-kim-loai-40-mm-1.png",
-            name: "Đồng Hồ",
-        },
-        {
-            id: "17",
-            image: "https://png.pngtree.com/png-vector/20230408/ourmid/pngtree-led-tv-television-screen-vector-png-image_6673700.png",
-            name: "Thiết Bị Điện Tử",
-        },
-        {
-            id: "18",
-            image: "https://png.pngtree.com/png-clipart/20230417/original/pngtree-mens-leather-shoes-brown-transparent-png-image_9062868.png",
-            name: "Giày Dép Nam",
-        },
-        {
-            id: "19",
-            image: "https://static.vecteezy.com/system/resources/previews/024/589/109/non_2x/teddy-bear-with-ai-generated-free-png.png",
-            name: "Đồ chơi",
-        },
-        {
-            id: "20",
-            image: "https://png.pngtree.com/png-vector/20240123/ourmid/pngtree-realistic-white-polo-shirt-mockup-png-file-png-image_11464698.png",
-            name: "Thời Trang Nam",
-        },
-        {
-            id: "21",
-            image: "https://khothietke.net/wp-content/uploads/2021/05/PNGKhothietke.net-02883.png",
-            name: "Giày Dép Nữ",
-        },
-        {
-            id: "22",
-            image: "https://khothietke.net/wp-content/uploads/2021/04/PNGKhothietke.net-02227.png",
-            name: "Thiết bị da dụng",
-        },
-        {
-            id: "23",
-            image: "https://product.hstatic.net/200000271685/product/3_2f75f78bf54747e3814c884ecbffb645.png",
-            name: "Giặt giũ & Chăm sóc nhà cửa",
-        },
-        {
-            id: "24",
-            image: "https://bizweb.dktcdn.net/100/383/994/products/khau-trang-5d-trang.png?v=1687155655500",
-            name: "Sức Khỏe",
-        },
-    ];
 
     const images = [
         "https://cf.shopee.vn/file/vn-50009109-53226b3229b5929212a702d966c211c6_xxhdpi",
@@ -250,13 +125,42 @@ export default function ShoppingMall() {
     ];
 
     const [products, setProducts] = useState([]);
+    const [open, setOpen] = useState(false);
+    // const [addresses, setAddresses] = useState([]);
+    const [category, setCategory] = useState("Thể thao & du lịch");
+    // const { userId, setUserId } = useContext(UserType);
+    // const [selectedAddress, setSelectedAdress] = useState("");
+    // console.log(selectedAddress)
+    const [items, setItems] = useState([
+        {
+            image: "https://down-vn.img.susercontent.com/file/8e71245b9659ea72c1b4e737be5cf42e_tn&quot",
+            label: "Trang Sức ",
+            value: "jewelery",
+        },
+        {
+            image: "https://down-vn.img.susercontent.com/file/978b9e4cb61c611aaaf58664fae133c5_tn&quot",
+            label: "Thiết Bị Điện Tử",
+            value: "electronics",
+
+        },
+        {
+            image: "https://down-vn.img.susercontent.com/file/687f3967b7c2fe6a134a2c11894eea4b_tn&quot",
+            label: "Thời Trang Nam",
+            value: "Men's clothing",
+        },
+        {
+            image: "https://down-vn.img.susercontent.com/file/75ea42f9eca124e9cb3cde744c060e4d_tn&quot;",
+            label: "Thời Trang Nữ",
+            value: "women's clothing",
+        },
+    ]);
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get("https://fakestoreapi.com/products");
                 setProducts(response.data);
             } catch (error) {
-                console.log("thông báo lỗi", error);
+                console.log("thông báo lỗi api", error);
             }
         };
 
@@ -416,40 +320,43 @@ export default function ShoppingMall() {
 
                             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                                 <View style={{ flexDirection: 'row' }}>
-                                    {list.map((item, index) => (
+                                    {items.map((value, index) => (
                                         <TouchableOpacity
                                             key={index}
                                             style={{
-                                                width: 90, // Độ rộng của TouchableOpacity
-                                                marginHorizontal: 5, // Khoảng cách giữa các TouchableOpacity
+                                                width: 90,
+                                                marginHorizontal: 5,
                                                 justifyContent: "center",
                                                 alignItems: "center",
                                                 paddingBottom: 10
                                             }}
+                                            onPress={() => {
+                                                setCategory(value.value);
+                                                setOpen(false);
+                                            }}
                                         >
                                             <Image
                                                 style={{ width: 50, height: 50, resizeMode: "contain" }}
-                                                source={{ uri: item.image }}
+                                                source={{ uri: value.image }}
                                             />
-
                                             <Text
                                                 style={{
                                                     textAlign: "center",
                                                     fontSize: 12,
                                                     fontWeight: "500",
                                                     marginTop: 5,
-                                                    width: 70, // Độ rộng của văn bản
-                                                    lineHeight: 18, // Chiều cao dòng của văn bản
+                                                    width: 70,
+                                                    lineHeight: 18,
                                                 }}
-                                                numberOfLines={2} // Giới hạn số dòng hiển thị là 2
+                                                numberOfLines={2}
                                             >
-                                                {item.name}
+                                                {value.label}
                                             </Text>
-
                                         </TouchableOpacity>
                                     ))}
                                 </View>
                             </ScrollView>
+
                             <View>
                                 <TouchableOpacity style={{
                                     paddingHorizontal: 10,
@@ -473,7 +380,7 @@ export default function ShoppingMall() {
                                     />
                                 </TouchableOpacity>
                             </View>
-                            <ScrollView horizontal={true} style={{}}>
+                            <ScrollView horizontal={true}>
                                 {products?.map((item, index) => (
                                     <ProductItem item={item} key={index} />
                                 ))}
@@ -488,7 +395,7 @@ export default function ShoppingMall() {
                                 height: 47,
                                 justifyContent: 'center',
                             }}>
-                                <Text style={{ marginLeft: 12, color: 'tomato', fontSize: 17, fontWeight: 'bold' }}>GỢI Ý HÔM NAY</Text>
+                                <Text style={{ marginLeft: 12, color: 'red', fontSize: 17, fontWeight: 'bold' }}>GỢI Ý HÔM NAY</Text>
                             </View>
                             <View style={{ marginHorizontal: 8, marginBottom: 20 }}>
                                 {deals.reduce((rows, item, idx) => {
@@ -501,10 +408,29 @@ export default function ShoppingMall() {
                                 }, []).map((row, rowIndex) => (
                                     <View key={rowIndex} style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                                         {row.map((item, itemIndex) => (
-                                            <TouchableOpacity key={itemIndex} style={{ marginRight: 7, marginBottom: 10, flex: 1, backgroundColor: 'white' }}>
+                                            <TouchableOpacity
+                                                onPress={() =>
+                                                    navigation.navigate("ProductDetail", {
+                                                        id: item.id,
+                                                        title: item?.title,
+                                                        price: item?.price,
+                                                        carouselImages: item.carouselImages,
+                                                        oldPrice: item.oldPrice,
+                                                        discount: item.discount,
+                                                        statistic: item.statistic,
+                                                        item: item,
+                                                    })
+                                                }
+                                                style={{
+                                                    marginRight: 7,
+                                                    marginBottom: 10,
+                                                    flex: 1,
+                                                    backgroundColor: 'white'
+                                                }}
+                                            >
                                                 <Image
                                                     style={{ marginTop: 10, width: 190, height: 190 }}
-                                                    source={{ uri: item?.image }}
+                                                    source={{ uri: item.image }}
                                                 />
                                                 <Text style={{ marginTop: 10, marginLeft: 8, fontSize: 17 }} numberOfLines={2}>{item.title.substring(0, 50)}</Text>
                                                 {item.discount !== "" && (
@@ -539,8 +465,8 @@ export default function ShoppingMall() {
                                                     <Text style={{ fontSize: 13, color: 'black', marginLeft: 10 }}>Đã bán {item.statistic}</Text>
                                                 </View>
                                             </TouchableOpacity>
+
                                         ))}
-                                        {/* Nếu chỉ có 1 sản phẩm trên hàng, hiển thị text ngắn với màu nền lightgray */}
                                         {row.length === 1 && (
                                             <TouchableOpacity style={{ marginRight: 7, marginBottom: 10, flex: 1, backgroundColor: '#F8F8F8' }}>
                                             </TouchableOpacity>

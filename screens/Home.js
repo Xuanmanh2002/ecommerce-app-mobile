@@ -431,9 +431,9 @@ export default function Home() {
                             width: 74,
                             height: 30,
                             marginLeft: 8,
-                            borderWidth: 1, // Độ dày của đường viền
-                            borderColor: 'transparent', // Màu của đường viền (trong trường hợp này, là màu của nền để tạo ra hiệu ứng răng cưa)
-                            borderTopLeftRadius: 4, // Bán kính của các góc
+                            borderWidth: 1,
+                            borderColor: 'transparent', 
+                            borderTopLeftRadius: 4, 
                             borderTopRightRadius: 10,
                             borderBottomLeftRadius: 10,
                             borderBottomRightRadius: 4

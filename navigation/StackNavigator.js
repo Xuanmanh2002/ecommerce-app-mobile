@@ -9,6 +9,7 @@ import Home from "../screens/Home";
 import Cart from "../screens/Cart";
 import ShoppingMall from "../screens/ShoppingMall";
 import Notify from "../screens/Notify";
+import ProductDetail from "../screens/ProductDetail";
 import { Feather } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
@@ -76,6 +77,7 @@ export default function StackNavigator() {
         <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
         <Stack.Screen name="Tab" component={MainTabs} options={{ headerShown: false }} />
         <Stack.Screen name="Cart" component={Cart} options={{ headerShown: false }} />
+        <Stack.Screen name="ProductDetail" component={ProductDetail} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
