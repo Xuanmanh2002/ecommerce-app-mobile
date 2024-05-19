@@ -53,7 +53,7 @@ export default function Login() {
         };
  
         axios
-            .post("http:///172.16.184.121:8000/login", user)
+            .post("http:////192.168.1.187:8000/login", user)
             .then((response) => {
                 console.log(response);
                 const token = response.data.token;

@@ -27,6 +27,14 @@ import axios from "axios";
 
 
 export default function Notify() {
+    const screenWidth = Dimensions.get('window').width;
+    const shadowStyle = {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+    };
     const navigation = useNavigation();
     const list = [
     ];
@@ -43,64 +51,41 @@ export default function Notify() {
     const offers = [
     ];
     return (
-        <>
-            <SafeAreaView
-                style={{
-                    paddingTop: Platform.OS === "android" ? 40 : 0,
-                    flex: 1,
-                    backgroundColor: "#F8F8F8",
-                }}>
-                <View style={{ top: 0, left: 0 }}>
+        <SafeAreaView
+            style={{
+                paddingTop: Platform.OS === "android" ? 40 : 0,
+                flex: 1,
+                backgroundColor: "#F8F8F8",
+            }}>
+            <View style={{ top: 0, left: 0 }}>
+                <View style={{ padding: 30, position: 'relative', flex: 1, ...shadowStyle }}>
                     <View
                         style={{
-                            padding: 30,
-                            position: 'relative',
-                            flex: 1,
+                            paddingTop: 5,
+                            position: 'absolute',
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            width: screenWidth - 30 + 20,
+                            paddingLeft: 5,
                         }}>
-                        <View
-                            style={{
-                                paddingTop: 5,
-                                position: 'absolute',
-                                flexDirection: 'row',
-                                alignItems: 'center',
-                                justifyContent: 'center', 
-                                gap: 5,
-                                width: screenWidth - 30 + 20,
-                                paddingLeft: 5,
-                            }}>
-                            <Pressable
-                                style={{
-                                    flexDirection: 'row',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    flex: 1,
-                                }}>
-                                <TextInput
-                                    style={{ width: '100%', fontSize: 20, textAlign: 'center' }} // Thêm textAlign để căn giữa nội dung
-                                    placeholder="Thông báo"
-                                    placeholderTextColor="black"
-                                />
-                            </Pressable>
-                            <TouchableOpacity
-                                onPress={() =>
-                                    navigation.navigate('Cart', { isNavigation: false })
-                                }>
-                                <AntDesign
-                                    style={{
-                                        marginRight: 10,
-                                    }}
-                                    name="shoppingcart"
-                                    size={28}
-                                    color="tomato"
-                                />
-                            </TouchableOpacity>
-                            <TouchableOpacity>
-                                <AntDesign name="message1" size={24} color="tomato" />
-                            </TouchableOpacity>
-                        </View>
+                        <Pressable style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+                            <TextInput
+                                style={{ width: '100%', fontSize: 20, textAlign: 'center' }}
+                                placeholder="Thông báo"
+                                placeholderTextColor="black"
+                            />
+                        </Pressable>
+                        <TouchableOpacity onPress={() => navigation.navigate('Cart', { isNavigation: false })}>
+                            <AntDesign style={{ marginRight: 10 }} name="shoppingcart" size={28} color="tomato" />
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <AntDesign name="message1" size={24} color="tomato" />
+                        </TouchableOpacity>
                     </View>
                 </View>
-            </SafeAreaView>
-        </>
+                <View style={{ marginTop: 3, borderBottomWidth: 13, borderBottomColor: 'lightgray', width: '100%' }} />
+            </View>
+        </SafeAreaView>
     )
 }
