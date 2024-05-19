@@ -8,30 +8,42 @@ import {
   Text,
   ImageBackground,
   Dimensions,
-  SafeAreaView,
-  Platform
+  Platform,
 } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { SliderBox } from "react-native-image-slider-box";
 import { Ionicons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import Toast from 'react-native-toast-message';
+import { MaterialIcons } from '@expo/vector-icons';
 
 const ProductDetail = () => {
   const route = useRoute();
   const navigation = useNavigation();
   const { width } = Dimensions.get('window');
-  const screenWidth = Dimensions.get("window").width;
-  const screenHeight = Dimensions.get("window").height;
+
   const handleGoBack = () => {
     navigation.goBack();
   };
 
+  const [isFavorited, setIsFavorited] = useState(false);
+
+  const handlePress = () => {
+    setIsFavorited(!isFavorited);
+    Toast.show({
+      type: 'success',
+      text1: isFavorited
+        ? 'Bạn đã xoá sản phẩm khỏi mục yêu thích'
+        : 'Bạn đã thêm sản phẩm vào mục yêu thích',
+      visibilityTime: 3000,
+      position: 'bottom',
+    });
+  };
 
   return (
     <>
-      <SafeAreaView style={{
+      <View style={{
         paddingTop: Platform.OS === "android" ? 40 : 0,
         flex: 1,
         backgroundColor: 'white',
@@ -73,7 +85,7 @@ const ProductDetail = () => {
               color="black"
             />
             <TextInput
-              style={{ width: '100%' }}
+              style={{ width: '100%', paddingLeft: 5 }}
               placeholder={route?.params?.title?.length > 25 ? route?.params?.title?.substring(0, 25) + '...' : route?.params?.title}
               placeholderTextColor="red"
             />
@@ -126,7 +138,7 @@ const ProductDetail = () => {
               marginBottom: -5,
             }}>đ</Text>
             <Text style={{
-              fontSize: 25,
+              fontSize: 20,
               color: 'red',
               fontWeight: 'bold',
             }}>{Math.floor(route?.params?.price).toLocaleString('vi-VN')}</Text>
@@ -143,15 +155,15 @@ const ProductDetail = () => {
                 color: 'lightgray',
               }}>đ</Text>
               <Text style={{
-                fontSize: 20,
+                fontSize: 15,
                 color: 'lightgray',
                 textDecorationLine: 'line-through',
               }}>{Math.floor(route?.params?.oldPrice).toLocaleString('vi-VN')}</Text>
             </View>
             {route?.params?.discount !== "" && (
               <View style={{
-                width: 60,
-                height: 30,
+                width: 40,
+                height: 20,
                 marginLeft: 8,
                 backgroundColor: 'yellow',
                 borderTopLeftRadius: 8,
@@ -163,7 +175,7 @@ const ProductDetail = () => {
                 justifyContent: 'center',
               }}>
                 <Text style={{
-                  fontSize: 23,
+                  fontSize: 15,
                   color: 'red',
                 }}>-{route?.params?.discount}%</Text>
               </View>
@@ -174,8 +186,8 @@ const ProductDetail = () => {
             justifyContent: 'center',
             alignItems: 'center',
             backgroundColor: 'white',
-            width: 125,
-            height: 30,
+            width: 110,
+            height: 20,
             borderWidth: 1,
             borderColor: '#22d3ee',
             borderTopLeftRadius: 3,
@@ -184,7 +196,8 @@ const ProductDetail = () => {
             borderBottomRightRadius: 3,
           }}>
             <Text style={{
-              color: '#22d3ee'
+              color: '#22d3ee',
+              fontSize: 13
             }}> Miễn phí trả hàng</Text>
           </View>
           <View style={{
@@ -195,8 +208,8 @@ const ProductDetail = () => {
               alignItems: 'center',
             }}>
               <Text style={{
-                fontSize: 15,
-                fontFamily: 'Time New Romans',
+                fontSize: 12,
+                fontFamily: 'arial',
               }}>
                 <Text style={{ borderRadius: 10, backgroundColor: '#f43f5e', paddingHorizontal: 5, paddingVertical: 2, color: 'white', fontWeight: 'bold' }}>Mall</Text> {route?.params?.title}
               </Text>
@@ -208,13 +221,142 @@ const ProductDetail = () => {
               flexDirection: 'row',
               alignItems: 'center',
             }}>
-            <Entypo name="star" size={20} color="#F1C40F" />
-            <Text style={{ fontSize: 18}}>4.9 / 5</Text>
-            <Text style={{ color: '#f0f0f0'}}>  | </Text>
-            <Text style={{ fontSize: 18}}> Đã bán {route?.params?.statistic} </Text>
+            <TouchableOpacity style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
+              <Entypo name="star" size={12} color="#F1C40F" />
+              <Text style={{ fontSize: 15 }}>4.9 / 5</Text>
+            </TouchableOpacity>
+            <Text style={{ color: '#f0f0f0' }}>  | </Text>
+            <Text style={{ fontSize: 15 }}> Đã bán {route?.params?.statistic} </Text>
+            <View style={{
+              flex: 1,
+              marginLeft: 160,
+            }}>
+              <Pressable onPress={handlePress}>
+                <AntDesign name={isFavorited ? "heart" : "hearto"} size={24} color={isFavorited ? "red" : "black"} />
+              </Pressable>
+            </View>
+            <TouchableOpacity style={{
+              marginRight: 20,
+            }}>
+              <AntDesign name="message1" size={23} color="mediumblue" />
+            </TouchableOpacity>
           </View>
+          <View style={{ marginTop: 10, borderBottomWidth: 1, borderBottomColor: 'lightgray', width: '100%' }} />
+          <View style={{
+            paddingHorizontal: 10,
+            backgroundColor: 'white',
+            width: "100%",
+            height: 47,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}>
+            <Pressable style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <View style={{ width: 18, height: 18, borderRadius: 20, overflow: 'hidden', alignItems: 'center', justifyContent: 'center', backgroundColor: 'red' }}>
+                <MaterialIcons name="currency-exchange" size={12} color="white" />
+              </View>
+              <Text style={{ fontSize: 10, paddingLeft: 10 }}>Đổi ý miễn phí 15 ngày </Text>
+            </Pressable>
+            <Pressable style={{ flexDirection: 'row', alignItems: 'center', paddingLeft: 20 }}>
+              <View>
+                <Ionicons name="shield-checkmark-sharp" size={18} color="red" />
+              </View>
+              <Text style={{ fontSize: 10, paddingLeft: 10 }}>Chính hãng 100%</Text>
+            </Pressable>
+            <Pressable style={{ flexDirection: 'row', alignItems: 'center', paddingLeft: 20 }}>
+              <View>
+                <MaterialCommunityIcons name="truck-fast-outline" size={20} color="red" />
+              </View>
+              <Text style={{ fontSize: 10, paddingLeft: 10 }}>Giao miễn phí</Text>
+            </Pressable>
+          </View>
+          <View style={{ marginTop: 3, borderBottomWidth: 13, borderBottomColor: 'lightgray', width: '100%' }} />
+          <Pressable style={{
+            flexDirection: 'row',
+            marginTop: 15,
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginBottom: 15,
+          }}>
+            <Text style={{
+              fontSize: 14,
+              marginLeft: 10,
+            }}>Voucher của Shop</Text>
+            <View style={{
+              marginLeft: 110,
+              backgroundColor: 'orange',
+              paddingVertical: 1,
+              paddingHorizontal: 4,
+              borderRadius: 1,
+              borderWidth: 1,
+              borderColor: '#FF5722',
+              shadowColor: '#000',
+              shadowOffset: { width: 0, height: 2 },
+              shadowOpacity: 0.25,
+              shadowRadius: 3.84,
+              elevation: 5,
+            }}>
+              <Text style={{
+                fontSize: 12,
+                color: '#FFFFFF',
+              }}>Giảm đ20k</Text>
+            </View>
+            <View style={{
+              marginLeft: 10,
+              backgroundColor: 'orange',
+              paddingVertical: 1,
+              paddingHorizontal: 4,
+              borderRadius: 1,
+              borderWidth: 1,
+              borderColor: '#FF5722',
+              shadowColor: '#000',
+              shadowOffset: { width: 0, height: 2 },
+              shadowOpacity: 0.25,
+              shadowRadius: 3.84,
+              elevation: 5,
+            }}>
+              <Text style={{
+                fontSize: 12,
+                color: '#FFFFFF',
+              }}>Giảm đ20k</Text>
+            </View>
+            <View style={{
+              marginLeft: 5
+            }}>
+              <AntDesign name="right" size={20} color="black" />
+            </View>
+          </Pressable>
+          <View style={{ marginTop: 3, borderBottomWidth: 13, borderBottomColor: 'lightgray', width: '100%' }} />
+          <TouchableOpacity style={{
+            flexDirection: 'row',
+            marginTop: 15,
+            marginBottom: 15,
+          }}>
+            <Text style={{
+              fontSize: 12,
+              marginLeft: 10,
+            }}>SPayLater</Text>
+            <Text style={{
+              fontSize: 12,
+              marginLeft: 220,
+              color: 'tomato'
+            }}>Mua trước trả sau</Text>
+            <View style={{
+              marginLeft: 5
+            }}>
+              <AntDesign name="right" size={18} color="black" />
+            </View>
+          </TouchableOpacity>
+          <View style={{ marginTop: 3, borderBottomWidth: 13, borderBottomColor: 'lightgray', width: '100%' }} />
+            <View>
+              <Text>Chi tiết sản phẩm</Text>
+            </View>
         </ScrollView>
-      </SafeAreaView>
+      </View>
+      <Toast ref={(ref) => Toast.setRef(ref)} />
     </>
   );
 };

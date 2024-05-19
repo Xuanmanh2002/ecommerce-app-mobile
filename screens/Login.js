@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import {
-    ScrollView,
     StatusBar,
     StyleSheet,
     Text,
@@ -34,18 +33,18 @@ export default function Login() {
 
     useEffect(() => {
         const checkLoginStatus = async () => {
-            try {
-                const token = await AsyncStorage.getItem("authToken");
-
-                if (token) {
-                    navigation.replace("Tab");
-                }
-            } catch (err) {
-                console.log("thông báo lỗi", err);
+          try {
+            const token = await AsyncStorage.getItem("authToken");
+    
+            if (token) {
+              navigation.replace("Tab");
             }
+          } catch (err) {
+            console.log("error message", err);
+          }
         };
         checkLoginStatus();
-    }, []);
+      }, []);
 
     const handleLogin = () => {
         const user = {
@@ -54,7 +53,7 @@ export default function Login() {
         };
  
         axios
-            .post("http://172.16.184.121:8000/login", user)
+            .post("http:///172.16.184.121:8000/login", user)
             .then((response) => {
                 console.log(response);
                 const token = response.data.token;

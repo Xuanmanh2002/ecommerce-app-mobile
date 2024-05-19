@@ -1,18 +1,13 @@
 import {
     ScrollView,
-    StatusBar,
-    StyleSheet,
     Text,
     TextInput,
     TouchableOpacity,
     View,
-    ToastAndroid,
-    SafeAreaView,
     Platform,
     Pressable,
     Image,
     Dimensions,
-    Button,
 } from 'react-native'
 import React, { useState, useEffect, useCallback, useContext } from 'react';
 import { SliderBox } from "react-native-image-slider-box";
@@ -20,7 +15,6 @@ import { AntDesign } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
-import { EvilIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import ProductItem from "../components/ProductItem";
 
@@ -51,7 +45,7 @@ export default function ShoppingMall() {
             carouselImages: [
                 "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lu5tq8vzcudlf1",
                 "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lu5tq8y7azw3dc",
-                "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lu5tq9eklmpaf4",
+                "https://down-vn.img.susercontent.com/file/vn-1113420   1-7r98o-lu5tq9eklmpaf4",
                 "https://cf.shopee.vn/file/vn-50009109-4e849705f16bb65ccb2f651dcdf8c656_xxhdpi",
             ],
             discount: "10",
@@ -169,7 +163,7 @@ export default function ShoppingMall() {
     console.log("products", products)
     return (
         <>
-            <SafeAreaView
+            <View
                 style={{
                     paddingTop: Platform.OS === "android" ? 40 : 0,
                     flex: 1,
@@ -178,11 +172,11 @@ export default function ShoppingMall() {
                 <View style={{ top: 0, left: 0 }}>
                     <View
                         style={{
-                            padding: 28,
+                            padding: 32,
                         }}>
                         <View
                             style={{
-                                paddingTop: 5,
+                                paddingTop: 15,
                                 position: 'absolute',
                                 flexDirection: 'row',
                                 alignItems: 'center',
@@ -477,7 +471,7 @@ export default function ShoppingMall() {
                         </View>
                     </View>
                 </ScrollView>
-            </SafeAreaView>
+            </View>
         </>
     )
 }
