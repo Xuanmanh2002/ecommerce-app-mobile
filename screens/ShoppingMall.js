@@ -242,22 +242,22 @@ export default function ShoppingMall() {
                                 placeholderTextColor="red"
                             />
                         </Pressable>
-                        <TouchableOpacity
+                        <Pressable
                             onPress={() =>
                                 navigation.navigate('Cart', { isNavigation: false })
                             }>
                             <AntDesign
                                 style={{
-                                    marginRight: 10,
+                                    marginRight: 15,
                                 }}
                                 name="shoppingcart"
                                 size={28}
                                 color="tomato"
                             />
-                        </TouchableOpacity>
-                        <TouchableOpacity>
+                        </Pressable>
+                        <Pressable>
                             <AntDesign name="message1" size={24} color="tomato" />
-                        </TouchableOpacity>
+                        </Pressable>
                     </View>
                 </View>
             </View>
@@ -280,26 +280,26 @@ export default function ShoppingMall() {
                         alignItems: 'center',
                         justifyContent: 'space-between',
                     }}>
-                        <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        <Pressable style={{ flexDirection: 'row', alignItems: 'center' }}>
                             <View style={{ width: 18, height: 18, borderRadius: 20, overflow: 'hidden', alignItems: 'center', justifyContent: 'center', backgroundColor: 'red' }}>
                                 <AntDesign name="back" size={14} color="white" />
                             </View>
                             <Text style={{ fontSize: 10, paddingLeft: 10 }}>Miễn phí trả hàng</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', paddingLeft: 20 }}>
+                        </Pressable>
+                        <Pressable style={{ flexDirection: 'row', alignItems: 'center', paddingLeft: 20 }}>
                             <View>
                                 <Ionicons name="shield-checkmark-sharp" size={18} color="red" />
                             </View>
                             <Text style={{ fontSize: 10, paddingLeft: 10 }}>Chính hãng 100%</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', paddingLeft: 20 }}>
+                        </Pressable>
+                        <Pressable style={{ flexDirection: 'row', alignItems: 'center', paddingLeft: 20 }}>
                             <View>
                                 <MaterialCommunityIcons name="truck-fast-outline" size={20} color="red" />
                             </View>
                             <Text style={{ fontSize: 10, paddingLeft: 10 }}>Giao hàng miễn phí</Text>
-                        </TouchableOpacity>
+                        </Pressable>
                     </View>
-                    <TouchableOpacity style={{
+                    <Pressable style={{
                         paddingTop: 10,
                         paddingHorizontal: 10,
                         paddingBottom: 10,
@@ -322,7 +322,7 @@ export default function ShoppingMall() {
                             }}
                         />
                         <FontAwesome name="arrow-circle-right" size={24} color="white" style={{ position: 'absolute', right: 30, top: '60%', transform: [{ translateY: -12 }] }} />
-                    </TouchableOpacity>
+                    </Pressable>
 
                     <View style={{
                         marginTop: 10,
@@ -337,19 +337,19 @@ export default function ShoppingMall() {
                             paddingHorizontal: 10, // Thêm padding để tạo khoảng cách giữa các phần tử và biên của view
                         }}>
                             <Text style={{ color: 'black', fontSize: 17, fontWeight: 'bold' }}>Danh mục</Text>
-                            <TouchableOpacity>
+                            <Pressable>
                                 <Text style={{ color: 'lightgray', fontSize: 17 }}>
                                     Tìm hiểu ngay
                                     <AntDesign name="right" size={17} color="lightgray" style={{ marginLeft: 5 }} />
                                 </Text>
-                            </TouchableOpacity>
+                            </Pressable>
                         </View>
 
 
                         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                             <View style={{ flexDirection: 'row' }}>
                                 {items.map((value, index) => (
-                                    <TouchableOpacity
+                                    <Pressable
                                         key={index}
                                         style={{
                                             width: 90,
@@ -380,13 +380,13 @@ export default function ShoppingMall() {
                                         >
                                             {value.label}
                                         </Text>
-                                    </TouchableOpacity>
+                                    </Pressable>
                                 ))}
                             </View>
                         </ScrollView>
 
                         <View>
-                            <TouchableOpacity style={{
+                            <Pressable style={{
                                 paddingHorizontal: 10,
                                 paddingBottom: 10,
                                 backgroundColor: 'white',
@@ -406,7 +406,7 @@ export default function ShoppingMall() {
                                         borderRadius: 10
                                     }}
                                 />
-                            </TouchableOpacity>
+                            </Pressable>
                         </View>
                         <ScrollView horizontal={true}>
                             {products?.map((item, index) => (
@@ -436,7 +436,7 @@ export default function ShoppingMall() {
                             }, []).map((row, rowIndex) => (
                                 <View key={rowIndex} style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                                     {row.map((item, itemIndex) => (
-                                        <TouchableOpacity
+                                        <Pressable
                                             onPress={() =>
                                                 navigation.navigate("ProductDetail", {
                                                     id: item.id,
@@ -493,12 +493,12 @@ export default function ShoppingMall() {
                                                 <Text style={{ fontSize: 15, color: 'tomato' }}>{Math.floor(item.price).toLocaleString('vi-VN')} VNĐ</Text>
                                                 <Text style={{ fontSize: 13, color: 'black', marginLeft: 10 }}>Đã bán {item.statistic}</Text>
                                             </View>
-                                        </TouchableOpacity>
+                                        </Pressable>
 
                                     ))}
                                     {row.length === 1 && (
-                                        <TouchableOpacity style={{ marginRight: 7, marginBottom: 10, flex: 1, backgroundColor: '#F8F8F8' }}>
-                                        </TouchableOpacity>
+                                        <Pressable style={{ marginRight: 7, marginBottom: 10, flex: 1, backgroundColor: '#F8F8F8' }}>
+                                        </Pressable>
                                     )}
                                 </View>
                             ))}

@@ -68,9 +68,9 @@ export default function ProductDetail() {
             alignItems: 'center',
             justifyContent: 'space-between',
           }}>
-          <TouchableOpacity onPress={handleGoBack}>
+          <Pressable onPress={handleGoBack}>
             <Ionicons name="arrow-back-sharp" size={32} color="tomato" />
-          </TouchableOpacity>
+          </Pressable>
         </View>
         <Pressable
           style={{
@@ -94,7 +94,7 @@ export default function ProductDetail() {
             placeholderTextColor="red"
           />
         </Pressable>
-        <TouchableOpacity onPress={() => navigation.navigate('Cart', { isNavigation: false })}>
+        <Pressable onPress={() => navigation.navigate('Cart', { isNavigation: false })}>
           <AntDesign
             style={{
               marginRight: 10,
@@ -103,15 +103,15 @@ export default function ProductDetail() {
             size={28}
             color="tomato"
           />
-        </TouchableOpacity>
-        <TouchableOpacity>
+        </Pressable>
+        <Pressable>
           <MaterialCommunityIcons style={{
             marginRight: 10,
           }} name="share-outline" size={38} color="tomato" />
-        </TouchableOpacity>
-        <TouchableOpacity>
+        </Pressable>
+        <Pressable>
           <Entypo name="dots-three-vertical" size={24} color="tomato" />
-        </TouchableOpacity>
+        </Pressable>
       </View>
       <ScrollView>
         <View style={{ flex: 1 }}>
@@ -220,13 +220,13 @@ export default function ProductDetail() {
             flexDirection: 'row',
             alignItems: 'center',
           }}>
-          <TouchableOpacity style={{
+          <Pressable style={{
             flexDirection: 'row',
             alignItems: 'center',
           }}>
             <Entypo name="star" size={12} color="#F1C40F" />
             <Text style={{ fontSize: 15 }}>4.9 / 5</Text>
-          </TouchableOpacity>
+          </Pressable>
           <Text style={{ color: '#f0f0f0' }}>  | </Text>
           <Text style={{ fontSize: 15 }}> Đã bán {route?.params?.statistic} </Text>
           <View style={{
@@ -237,11 +237,11 @@ export default function ProductDetail() {
               <AntDesign name={isFavorited ? "heart" : "hearto"} size={24} color={isFavorited ? "red" : "black"} />
             </Pressable>
           </View>
-          <TouchableOpacity style={{
+          <Pressable style={{
             marginRight: 20,
           }}>
             <AntDesign name="message1" size={23} color="mediumblue" />
-          </TouchableOpacity>
+          </Pressable>
         </View>
         <View style={{ marginTop: 10, borderBottomWidth: 1, borderBottomColor: 'lightgray', width: '100%' }} />
         <View style={{
@@ -329,7 +329,7 @@ export default function ProductDetail() {
           </View>
         </Pressable>
         <View style={{ marginTop: 3, borderBottomWidth: 13, borderBottomColor: 'lightgray', width: '100%' }} />
-        <TouchableOpacity style={{
+        <Pressable style={{
           flexDirection: 'row',
           marginTop: 15,
           marginBottom: 15,
@@ -348,7 +348,7 @@ export default function ProductDetail() {
           }}>
             <AntDesign name="right" size={18} color="black" />
           </View>
-        </TouchableOpacity>
+        </Pressable>
         <View style={{ marginTop: 3, borderBottomWidth: 13, borderBottomColor: 'lightgray', width: '100%' }} />
         <View style={{
           marginLeft: 10,
@@ -373,14 +373,14 @@ export default function ProductDetail() {
             </Text>
           ))}
           {route?.params?.describe?.length > 5 && (
-            <TouchableOpacity onPress={handleToggleExpand}>
+            <Pressable onPress={handleToggleExpand}>
               <Text style={{
                 fontSize: 15,
                 color: 'blue',
               }}>
                 {isExpanded ? 'Thu gọn' : 'Xem thêm'}
               </Text>
-            </TouchableOpacity>
+            </Pressable>
           )}
         </View>
       </ScrollView>
@@ -400,7 +400,7 @@ export default function ProductDetail() {
         borderTopWidth: 1,
         borderColor: '#E0E0E0',
       }}>
-        <TouchableOpacity style={{
+        <Pressable style={{
           alignItems: 'center',
           marginRight: 20,
           marginLeft: 10,
@@ -412,9 +412,9 @@ export default function ProductDetail() {
             fontSize: 12,
             marginTop: 5,
           }}>Chat ngay</Text>
-        </TouchableOpacity>
+        </Pressable>
 
-        <TouchableOpacity style={{
+        <Pressable style={{
           alignItems: 'center',
           borderLeftWidth: 1,
           borderLeftColor: 'lightgray',
@@ -427,9 +427,9 @@ export default function ProductDetail() {
             fontSize: 12,
             marginTop: 5,
           }}>Thêm vào giỏ hàng</Text>
-        </TouchableOpacity>
+        </Pressable>
 
-        <TouchableOpacity style={{
+        <Pressable style={{
           flex: 1,
           alignItems: 'center',
           backgroundColor: 'red',
@@ -455,7 +455,7 @@ export default function ProductDetail() {
               color: 'white',
             }}>{Math.floor(route?.params?.price).toLocaleString('vi-VN')}</Text>
           </View>
-        </TouchableOpacity>
+        </Pressable>
       </View>
 
     </View>

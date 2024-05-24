@@ -80,22 +80,22 @@ export default function Login() {
                 borderBottomColor: '#ccc',
                 borderBottomWidth: 1,
             }}>
-                <TouchableOpacity onPress={() => navigation.navigate('Register', { isNavigation: false })}>
+                <Pressable onPress={() => navigation.navigate('Register', { isNavigation: false })}>
                     <Ionicons name="arrow-back-outline" size={30} color="tomato" />
-                </TouchableOpacity>
+                </Pressable>
                 <Text style={{
                     fontSize: 20,
                     textAlign: 'center',
                     flex: 1,
                 }}>Đăng nhập</Text>
-                <TouchableOpacity>
+                <Pressable>
                     <FontAwesome5 style={{
                         marginRight: 10
                     }} name="store" size={23} color="tomato" />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate('Register', { isNavigation: false })}>
+                </Pressable>
+                <Pressable onPress={() => navigation.navigate('Register', { isNavigation: false })}>
                     <AntDesign name="questioncircleo" size={25} color="tomato" />
-                </TouchableOpacity>
+                </Pressable>
             </View>
             <View
                 style={{
@@ -164,9 +164,9 @@ export default function Login() {
                         <AntDesign name={showPassword ? "eye" : "eyeo"} size={24} color="black" />
                     </Pressable>
                     <Text style={{ color: 'deepskyblue' }}>|</Text>
-                    <TouchableOpacity onPress={() => navigation.navigate('Home', { isNavigation: false })} style={{ width: screenWidth / 2 - 150, paddingTop: 10, paddingBottom: 10, backgroundColor: 'white', borderRadius: 5, alignItems: 'center' }}>
+                    <Pressable onPress={() => navigation.navigate('Home', { isNavigation: false })} style={{ width: screenWidth / 2 - 150, paddingTop: 10, paddingBottom: 10, backgroundColor: 'white', borderRadius: 5, alignItems: 'center' }}>
                         <Text style={{ color: 'deepskyblue' }}>Quên?</Text>
-                    </TouchableOpacity>
+                    </Pressable>
                 </Pressable>
             </View>
             <View style={{
@@ -174,17 +174,17 @@ export default function Login() {
                 flex: 1,
                 paddingHorizontal: 20,
             }}>
-                <TouchableOpacity onPress={handleLogin} style={{ paddingTop: 10, paddingBottom: 20, backgroundColor: 'gainsboro', borderRadius: 2, alignItems: 'center', justifyContent: 'center' }}>
+                <Pressable onPress={handleLogin} style={{ paddingTop: 10, paddingBottom: 20, backgroundColor: 'gainsboro', borderRadius: 2, alignItems: 'center', justifyContent: 'center' }}>
                     <Text style={{ color: 'silver', textAlign: 'center' }}>Đăng nhập</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate('Register', { isNavigation: false })} style={{ paddingLeft: 225, }}>
+                </Pressable>
+                <Pressable onPress={() => navigation.navigate('Register', { isNavigation: false })} style={{ paddingLeft: 225, }}>
                     <Text style={{ marginTop: 20, color: 'deepskyblue', fontSize: 15 }}>Đăng nhập bằng SMS</Text>
-                </TouchableOpacity>
+                </Pressable>
 
                 <Text style={{ marginTop: 20, color: 'silver', fontSize: 15, textAlign: 'center' }}>Hoặc</Text>
 
                 <View style={{ marginTop: 30 }}>
-                    <TouchableOpacity onPress={() => navigation.navigate('Register', { isNavigation: false })} style={{
+                    <Pressable onPress={() => navigation.navigate('Register', { isNavigation: false })} style={{
                         flexDirection: 'row',
                         alignItems: 'center',
                         borderWidth: 1,
@@ -203,8 +203,8 @@ export default function Login() {
                         <View style={{ flex: 1, justifyContent: 'center' }}>
                             <Text style={{ color: 'black', fontSize: 15, textAlign: 'center' }}>Tiếp tục với Google</Text>
                         </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate('Register', { isNavigation: false })} style={{
+                    </Pressable>
+                    <Pressable onPress={() => navigation.navigate('Register', { isNavigation: false })} style={{
                         marginTop: 10,
                         flexDirection: 'row',
                         alignItems: 'center',
@@ -224,8 +224,8 @@ export default function Login() {
                         <View style={{ flex: 1, justifyContent: 'center' }}>
                             <Text style={{ color: 'black', fontSize: 15, textAlign: 'center' }}>Tiếp tục với Facebook</Text>
                         </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate('Register', { isNavigation: false })} style={{
+                    </Pressable>
+                    <Pressable onPress={() => navigation.navigate('Register', { isNavigation: false })} style={{
                         marginTop: 10,
                         flexDirection: 'row',
                         alignItems: 'center',
@@ -245,7 +245,7 @@ export default function Login() {
                         <View style={{ flex: 1, justifyContent: 'center' }}>
                             <Text style={{ color: 'black', fontSize: 15, textAlign: 'center' }}>Tiếp tục với Apple</Text>
                         </View>
-                    </TouchableOpacity>
+                    </Pressable>
 
                 </View>
             </View>
@@ -253,9 +253,9 @@ export default function Login() {
                 <View style={{ backgroundColor: 'gainsboro', paddingTop: 10, paddingBottom: 50, borderRadius: 2, alignItems: 'center', justifyContent: 'center' }}>
                     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
                         <Text style={{ marginRight: 5 }}>Bạn chưa có tài khoản?</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate('Register', { isNavigation: true })}>
+                        <Pressable onPress={() => navigation.navigate('Register', { isNavigation: true })}>
                             <Text style={{ color: 'deepskyblue' }}>Đăng ký ngay</Text>
-                        </TouchableOpacity>
+                        </Pressable>
                     </View>
                 </View>
             </View>

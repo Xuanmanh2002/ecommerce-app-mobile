@@ -13,6 +13,7 @@ import ProductDetail from "../screens/ProductDetail";
 import { Feather } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import Account from "../screens/Account";
 
 export default function StackNavigator() {
   const Stack = createNativeStackNavigator();
@@ -57,7 +58,7 @@ export default function StackNavigator() {
         />
         <Tab.Screen
           name="Account"
-          component={ShoppingMall}
+          component={Account}
           options={{
             tabBarLabel: "Tôi",
             tabBarLabelStyle: { color: "#008E97" },

@@ -214,22 +214,22 @@ export default function Home() {
                 placeholderTextColor="tomato"
               />
             </Pressable>
-            <TouchableOpacity
+            <Pressable
               onPress={() =>
                 navigation.navigate('Cart', { isNavigation: false })
               }>
               <AntDesign
                 style={{
-                  marginRight: 10,
+                  marginRight: 15,
                 }}
                 name="shoppingcart"
                 size={28}
                 color="tomato"
               />
-            </TouchableOpacity>
-            <TouchableOpacity>
+            </Pressable>
+            <Pressable>
               <AntDesign name="message1" size={24} color="tomato" />
-            </TouchableOpacity>
+            </Pressable>
           </View>
         </View>
       </View>
@@ -268,7 +268,7 @@ export default function Home() {
               }, []).map((row, rowIndex) => (
                 <View key={rowIndex} style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                   {row.map((item, itemIndex) => (
-                    <TouchableOpacity
+                    <Pressable
                       onPress={() =>
                         navigation.navigate("ProductDetail", {
                           id: item.id,
@@ -325,12 +325,12 @@ export default function Home() {
                         <Text style={{ fontSize: 15, color: 'tomato' }}>{Math.floor(item.price).toLocaleString('vi-VN')} VNĐ</Text>
                         <Text style={{ fontSize: 13, color: 'black', marginLeft: 10 }}>Đã bán {item.statistic}</Text>
                       </View>
-                    </TouchableOpacity>
+                    </Pressable>
 
                   ))}
                   {row.length === 1 && (
-                    <TouchableOpacity style={{ marginRight: 7, marginBottom: 10, flex: 1, backgroundColor: '#F8F8F8' }}>
-                    </TouchableOpacity>
+                    <Pressable style={{ marginRight: 7, marginBottom: 10, flex: 1, backgroundColor: '#F8F8F8' }}>
+                    </Pressable>
                   )}
                 </View>
               ))}

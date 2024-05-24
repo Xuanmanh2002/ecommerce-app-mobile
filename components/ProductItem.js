@@ -21,7 +21,7 @@ const ProductItem = ({ item }) => {
     const exchangeRate = 24000;
     const priceInVND = item.price * exchangeRate;
     return (
-        <TouchableOpacity
+        <Pressable
             style={{
                 marginTop: 10,
                 marginLeft: 8,
@@ -58,7 +58,7 @@ const ProductItem = ({ item }) => {
                 marginLeft: 8 // Thêm marginLeft để căn chỉnh vị trí của giá tiền và icon
             }}>
                 <Text style={{ fontSize: 15, color: 'tomato', marginRight: 8 }}>{Math.floor(priceInVND.toFixed(0)).toLocaleString('vi-VN')} VNĐ</Text>
-                <TouchableOpacity style={{
+                <Pressable style={{
                     width: 30,
                     height: 30,
                     borderRadius: 15,
@@ -67,9 +67,9 @@ const ProductItem = ({ item }) => {
                     alignItems: 'center'
                 }}>
                     <AntDesign name="shoppingcart" size={24} color="white" />
-                </TouchableOpacity>
+                </Pressable>
             </View>
-        </TouchableOpacity>
+        </Pressable>
     )
 }
 
