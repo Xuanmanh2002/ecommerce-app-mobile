@@ -434,7 +434,7 @@ export default function ShoppingMall() {
                                 }
                                 return rows;
                             }, []).map((row, rowIndex) => (
-                                <View key={rowIndex} style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                                <View key={rowIndex} style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 10 }}>
                                     {row.map((item, itemIndex) => (
                                         <Pressable
                                             onPress={() =>
@@ -451,10 +451,12 @@ export default function ShoppingMall() {
                                                 })
                                             }
                                             style={{
-                                                marginRight: 7,
-                                                marginBottom: 10,
                                                 flex: 1,
-                                                backgroundColor: 'white'
+                                                backgroundColor: 'white',
+                                                borderRadius: 8,
+                                                overflow: 'hidden',
+                                                marginRight: itemIndex === 0 ? 5 : 0,
+                                                marginLeft: itemIndex === 1 ? 5 : 0,
                                             }}
                                         >
                                             <Image

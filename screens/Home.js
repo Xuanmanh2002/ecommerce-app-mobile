@@ -17,11 +17,9 @@ import {
 import React, { useState } from 'react';
 import { SliderBox } from "react-native-image-slider-box";
 import { AntDesign } from "@expo/vector-icons";
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 const screenWidth = Dimensions.get("window").width;
 const screenHeight = Dimensions.get("window").height;
-import axios from "axios";
 
 
 
@@ -266,7 +264,7 @@ export default function Home() {
                 }
                 return rows;
               }, []).map((row, rowIndex) => (
-                <View key={rowIndex} style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                <View key={rowIndex} style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 10 }}>
                   {row.map((item, itemIndex) => (
                     <Pressable
                       onPress={() =>
@@ -283,10 +281,12 @@ export default function Home() {
                         })
                       }
                       style={{
-                        marginRight: 7,
-                        marginBottom: 10,
                         flex: 1,
-                        backgroundColor: 'white'
+                        backgroundColor: 'white',
+                        borderRadius: 8,
+                        overflow: 'hidden',
+                        marginRight: itemIndex === 0 ? 5 : 0,
+                        marginLeft: itemIndex === 1 ? 5 : 0,
                       }}
                     >
                       <Image

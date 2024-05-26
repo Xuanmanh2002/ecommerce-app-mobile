@@ -1,35 +1,49 @@
 import {
     ScrollView,
-    StatusBar,
-    StyleSheet,
     Text,
-    TextInput,
-    TouchableOpacity,
     View,
-    ToastAndroid,
-    SafeAreaView,
     Platform,
     Pressable,
     Image,
     Dimensions,
+    SafeAreaView,
 } from 'react-native'
 import React from 'react'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from "@expo/vector-icons";
-import { PreventRemoveContext, useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import { SimpleLineIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { EvilIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
+import { Octicons } from '@expo/vector-icons';
+import { Fontisto } from '@expo/vector-icons';
 
 const screenWidth = Dimensions.get("window").width;
 const screenHeight = Dimensions.get("window").height;
 
 export default function Account() {
     const navigation = useNavigation();
+    function splitText(text) {
+        const maxCharsPerLine = 15;
+        let result = '';
+        let currentLine = '';
+
+        text.split(' ').forEach(word => {
+            if ((currentLine + word).length > maxCharsPerLine) {
+                result += currentLine.trim() + '\n';
+                currentLine = word + ' ';
+            } else {
+                currentLine += word + ' ';
+            }
+        });
+
+        result += currentLine.trim();
+        return result.trim();
+    }
     return (
-        <View style={{
+        <SafeAreaView style={{
             paddingTop: Platform.OS === "android" ? 40 : 0,
             flex: 1,
             backgroundColor: "#F8F8F8",
@@ -160,48 +174,140 @@ export default function Account() {
                         </View>
                     </View>
                 </View>
-                <ScrollView>
+
+            </View>
+            <ScrollView>
+                <View style={{
+                    paddingTop: 140,
+                    paddingBottom: 10,
+                    paddingLeft: 10,
+                    backgroundColor: 'white',
+                }}>
                     <View style={{
-                        paddingTop: 10,
-                        paddingBottom: 10,
-                        paddingLeft: 10,
-                        backgroundColor: 'white',
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
                     }}>
-                        <View style={{
+                        <Pressable>
+                            <Text style={{ fontWeight: 'bold', fontSize: 14 }}>Đơn mua</Text>
+                        </Pressable>
+                        <Pressable style={{
                             flexDirection: 'row',
+                            alignItems: 'center'
+                        }}>
+                            <Text style={{ fontSize: 12 }}>Xem lịch sử mua hàng</Text>
+                            <AntDesign style={{ marginLeft: 5, marginRight: 10, }} name="right" size={14} color="gainsboro" />
+                        </Pressable>
+                    </View>
+                    <View style={{
+                        flexDirection: 'row',
+                        paddingTop: 20,
+                        paddingLeft: 10,
+                        alignItems: 'center'
+                    }}>
+                        <Pressable style={{ alignItems: 'center' }}>
+                            <AntDesign name="wallet" size={24} color="black" />
+                            <Text style={{ fontSize: 12 }}>Chờ xác nhận</Text>
+                        </Pressable>
+                        <Pressable style={{ alignItems: 'center', paddingLeft: 30 }}>
+                            <AntDesign name="inbox" size={24} color="black" />
+                            <Text style={{ fontSize: 12 }}>Chờ lấy hàng</Text>
+                        </Pressable>
+                        <Pressable style={{ alignItems: 'center', paddingLeft: 30 }}>
+                            <Feather name="truck" size={24} color="black" />
+                            <Text style={{ fontSize: 12 }}>Chờ giao hàng</Text>
+                        </Pressable>
+                        <Pressable style={{ alignItems: 'center', paddingLeft: 30 }}>
+                            <View style={{
+                                width: 25,
+                                height: 25,
+                                borderRadius: 12.5,
+                                backgroundColor: 'white',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                borderWidth: 1.6,
+                                borderColor: 'black',
+                            }}>
+                                <EvilIcons name="star" size={23} color="black" />
+                            </View>
+                            <Text style={{ fontSize: 12 }}>Đánh giá</Text>
+                        </Pressable>
+                    </View>
+                    <View style={{
+                        paddingTop: 15,
+                        paddingBottom: 5,
+                        paddingRight: 10,
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                    }}>
+                        <Pressable style={{
+                            paddingLeft: 10,
+                            flexDirection: 'row',
+                            width: 190,
+                            height: 35,
+                            backgroundColor: 'white',
+                            borderWidth: 1,
+                            borderColor: 'gainsboro',
                             justifyContent: 'space-between',
                             alignItems: 'center',
                         }}>
-                            <Pressable>
-                                <Text style={{ fontWeight: 'bold', fontSize: 14 }}>Đơn mua</Text>
-                            </Pressable>
-                            <Pressable style={{
-                                flexDirection: 'row',
-                                alignItems: 'center'
-                            }}>
-                                <Text style={{ fontSize: 12 }}>Xem lịch sử mua hàng</Text>
-                                <AntDesign style={{ marginLeft: 5, marginRight: 10, }} name="right" size={14} color="gainsboro" />
-                            </Pressable>
-                        </View>
+                            <Text style={{ fontSize: 12 }}>Đơn nạp thẻ và Dịch vụ</Text>
+                            <AntDesign style={{ marginLeft: 5, marginRight: 10, }} name="right" size={14} color="gainsboro" />
+                        </Pressable>
+                        <Pressable style={{
+                            paddingLeft: 10,
+                            flexDirection: 'row',
+                            width: 190,
+                            height: 35,
+                            backgroundColor: 'white',
+                            borderWidth: 1,
+                            borderColor: 'gainsboro',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                        }}>
+                            <Text style={{ fontSize: 12 }}>Đơn ShopeeFood</Text>
+                            <AntDesign style={{ marginLeft: 5, marginRight: 10, }} name="right" size={14} color="gainsboro" />
+                        </Pressable>
+
+                    </View>
+                </View>
+                <View style={{
+                    paddingTop: 10,
+                }}>
+                    <View style={{
+                        padding: 10,
+                        backgroundColor: 'white'
+                    }}>
+                        <Text style={{ fontSize: 14, fontWeight: 'bold' }}>Tiện ích của tôi</Text>
                         <View style={{
                             flexDirection: 'row',
                             paddingTop: 20,
                             paddingLeft: 10,
                             alignItems: 'center'
                         }}>
-                            <Pressable style={{ alignItems: 'center' }}>
-                                <AntDesign name="wallet" size={24} color="black" />
-                                <Text style={{ fontSize: 12 }}>Chờ xác nhận</Text>
+                            <Pressable style={{ alignItems: 'center', marginRight: 25, marginTop: -26 }}>
+                                <Ionicons name="wallet-outline" size={24} color="black" />
+                                <Text style={{ fontSize: 12 }}>Ví ShopeePay</Text>
                             </Pressable>
-                            <Pressable style={{ alignItems: 'center', paddingLeft: 30 }}>
-                                <AntDesign name="inbox" size={24} color="black" />
-                                <Text style={{ fontSize: 12 }}>Chờ lấy hàng</Text>
-                            </Pressable>
-                            <Pressable style={{ alignItems: 'center', paddingLeft: 30 }}>
-                                <Feather name="truck" size={24} color="black" />
-                                <Text style={{ fontSize: 12 }}>Chờ giao hàng</Text>
-                            </Pressable>
-                            <Pressable style={{ alignItems: 'center', paddingLeft: 30 }}>
+                            <View style={{ marginRight: 25 }}>
+                                <Pressable style={{ alignItems: 'center' }}>
+                                    <AntDesign name="wallet" size={24} color="black" />
+                                    <Text style={{ fontSize: 12 }}>SPayLater</Text>
+                                </Pressable>
+                                <View style={{
+                                    marginTop: 5,
+                                    width: 90,
+                                    height: 20,
+                                    backgroundColor: 'white',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    borderWidth: 1,
+                                    borderColor: 'tomato',
+                                }}>
+                                    <Text style={{ fontSize: 12, color: 'tomato' }}>Kích hoạt ngay</Text>
+                                </View>
+                            </View>
+                            <Pressable style={{ alignItems: 'center', marginRight: 25 }}>
                                 <View style={{
                                     width: 25,
                                     height: 25,
@@ -212,219 +318,244 @@ export default function Account() {
                                     borderWidth: 1.6,
                                     borderColor: 'black',
                                 }}>
-                                    <EvilIcons name="star" size={23} color="black" />
+                                    <MaterialIcons name="attach-money" size={22} color="black" />
                                 </View>
-                                <Text style={{ fontSize: 12 }}>Đánh giá</Text>
+                                <Text style={{ fontSize: 12 }}>Shopee Xu</Text>
+                                <View style={{
+                                    marginTop: 5,
+                                    justifyContent: 'center',
+                                }}>
+                                    <Text style={{ fontSize: 12, color: 'tomato' }}>300 Xu</Text>
+                                </View>
+                            </Pressable>
+                            <Pressable style={{ alignItems: 'center', marginRight: 10 }}>
+                                <Ionicons name="ticket-outline" size={24} color="black" />
+                                <Text style={{ fontSize: 12 }}>Kho voucher</Text>
+                                <View style={{
+                                    marginTop: 5,
+                                    justifyContent: 'center',
+                                }}>
+                                    <Text style={{ fontSize: 12, color: 'tomato' }}>50+ Voucher</Text>
+                                </View>
+                            </Pressable>
+                        </View>
+
+                    </View>
+                </View>
+                <View style={{
+                    marginTop: 10,
+                }}>
+                    <View style={{
+                        paddingTop: 10,
+                        paddingBottom: 10,
+                        backgroundColor: 'white'
+                    }}>
+                        <Text style={{ paddingLeft: 10, fontSize: 14, fontWeight: 'bold' }}>Dịch vụ tài chính</Text>
+                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 20, paddingLeft: 20, paddingRight: 10 }}>
+                            <Pressable style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                                <Ionicons name="shield-checkmark-outline" size={24} color="tomato" />
+                                <Text style={{ marginLeft: 5 }}> Bảo hiểm của tôi</Text>
+                            </Pressable>
+                            <Pressable style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                                <Text style={{ color: 'tomato', fontSize: 12 }}>Khám phá ngay!</Text>
+                                <AntDesign style={{ marginLeft: 5 }} name="right" size={11} color="gainsboro" />
+                            </Pressable>
+                        </View>
+                    </View>
+                </View>
+                <View style={{
+                    marginTop: 10,
+                }}>
+                    <View style={{
+                        paddingTop: 10,
+                        paddingBottom: 10,
+                        backgroundColor: 'white',
+                        paddingRight: 10,
+                    }}>
+                        <View style={{
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                            alignItems: 'center'
+                        }}>
+                            <Pressable>
+                                <Text style={{ paddingLeft: 10, fontSize: 14, fontWeight: 'bold' }}>Tiện ích khác</Text>
+                            </Pressable>
+                            <Pressable style={{
+                                flexDirection: 'row',
+                                alignItems: 'center'
+                            }}>
+                                <Text style={{ paddingLeft: 10, fontSize: 12 }}>Xem tất cả</Text>
+                                <AntDesign style={{ marginLeft: 5 }} name="right" size={11} color="gainsboro" />
                             </Pressable>
                         </View>
                         <View style={{
+                            paddingLeft: 15,
                             paddingTop: 15,
                             paddingBottom: 5,
-                            paddingRight: 10,
+                            paddingRight: 8,
                             flexDirection: 'row',
                             justifyContent: 'space-between',
                         }}>
                             <Pressable style={{
-                                paddingLeft: 10,
+                                paddingLeft: 15,
+                                paddingRight: 20,
                                 flexDirection: 'row',
-                                width: 190,
-                                height: 35,
+                                width: 187,
+                                height: 50,
                                 backgroundColor: 'white',
                                 borderWidth: 1,
                                 borderColor: 'gainsboro',
-                                justifyContent: 'space-between',
                                 alignItems: 'center',
                             }}>
-                                <Text style={{ fontSize: 12 }}>Đơn nạp thẻ và Dịch vụ</Text>
-                                <AntDesign style={{ marginLeft: 5, marginRight: 10, }} name="right" size={14} color="gainsboro" />
+                                <Octicons name="file-badge" size={20} color="tomato" />
+                                <View>
+                                    <Text style={{ fontSize: 14, paddingLeft: 10 }}>
+                                        {splitText('Khách hàng thân thiết')}
+                                    </Text>
+                                </View>
                             </Pressable>
                             <Pressable style={{
-                                paddingLeft: 10,
+                                paddingLeft: 15,
+                                paddingRight: 10,
                                 flexDirection: 'row',
-                                width: 190,
-                                height: 35,
+                                width: 187,
+                                height: 50,
                                 backgroundColor: 'white',
                                 borderWidth: 1,
                                 borderColor: 'gainsboro',
-                                justifyContent: 'space-between',
                                 alignItems: 'center',
                             }}>
-                                <Text style={{ fontSize: 12 }}>Đơn ShopeeFood</Text>
-                                <AntDesign style={{ marginLeft: 5, marginRight: 10, }} name="right" size={14} color="gainsboro" />
+                                <Ionicons name="bag-handle-outline" size={24} color="tomato" />
+                                <Text style={{ fontSize: 14, paddingLeft: 10 }}>
+                                    {splitText('Mua lại')}
+                                </Text>
                             </Pressable>
-
                         </View>
-                    </View>
-                    <View style={{
-                        paddingTop: 10,
-                    }}>
                         <View style={{
-                            padding: 10,
-                            backgroundColor: 'white'
+                            paddingLeft: 15,
+                            paddingTop: 3,
+                            paddingBottom: 5,
+                            paddingRight: 8,
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
                         }}>
-                            <Text style={{ fontSize: 14, fontWeight: 'bold' }}>Tiện ích của tôi</Text>
-                            <View style={{
+                            <Pressable style={{
+                                paddingLeft: 15,
+                                paddingRight: 20,
                                 flexDirection: 'row',
-                                paddingTop: 20,
-                                paddingLeft: 10,
-                                alignItems: 'center'
+                                width: 187,
+                                height: 50,
+                                backgroundColor: 'white',
+                                borderWidth: 1,
+                                borderColor: 'gainsboro',
+                                alignItems: 'center',
                             }}>
-                                <Pressable style={{ alignItems: 'center', marginRight: 25, marginTop: -26 }}>
-                                    <Ionicons name="wallet-outline" size={24} color="black" />
-                                    <Text style={{ fontSize: 12 }}>Ví ShopeePay</Text>
-                                </Pressable>
-                                <View style={{ marginRight: 25 }}>
-                                    <Pressable style={{ alignItems: 'center' }}>
-                                        <AntDesign name="wallet" size={24} color="black" />
-                                        <Text style={{ fontSize: 12 }}>SPayLater</Text>
-                                    </Pressable>
-                                    <View style={{
-                                        marginTop: 5,
-                                        width: 90,
-                                        height: 20,
-                                        backgroundColor: 'white',
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                        borderWidth: 1,
-                                        borderColor: 'tomato',
-                                    }}>
-                                        <Text style={{ fontSize: 12, color: 'tomato' }}>Kích hoạt ngay</Text>
-                                    </View>
+                                <Feather name="tv" size={23} color="tomato" />
+                                <View>
+                                    <Text style={{ fontSize: 14, paddingLeft: 10 }}>
+                                        {splitText('Kênh người sáng tạo')}
+                                    </Text>
                                 </View>
-                                <Pressable style={{ alignItems: 'center', marginRight: 25 }}>
-                                    <View style={{
-                                        width: 25,
-                                        height: 25,
-                                        borderRadius: 12.5,
-                                        backgroundColor: 'white',
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                        borderWidth: 1.6,
-                                        borderColor: 'black',
-                                    }}>
-                                        <MaterialIcons name="attach-money" size={22} color="black" />
-                                    </View>
-                                    <Text style={{ fontSize: 12 }}>Shopee Xu</Text>
-                                    <View style={{
-                                        marginTop: 5,
-                                        justifyContent: 'center',
-                                    }}>
-                                        <Text style={{ fontSize: 12, color: 'tomato' }}>300 Xu</Text>
-                                    </View>
-                                </Pressable>
-                                <Pressable style={{ alignItems: 'center', marginRight: 10 }}>
-                                    <Ionicons name="ticket-outline" size={24} color="black" />
-                                    <Text style={{ fontSize: 12 }}>Kho voucher</Text>
-                                    <View style={{
-                                        marginTop: 5,
-                                        justifyContent: 'center',
-                                    }}>
-                                        <Text style={{ fontSize: 12, color: 'tomato' }}>50+ Voucher</Text>
-                                    </View>
-                                </Pressable>
-                            </View>
-
-                        </View>
-                    </View>
-                    <View style={{
-                        marginTop: 10,
-                    }}>
-                        <View style={{
-                            paddingTop: 10,
-                            paddingBottom: 10,
-                            backgroundColor: 'white'
-                        }}>
-                            <Text style={{ paddingLeft: 10, fontSize: 14, fontWeight: 'bold' }}>Dịch vụ tài chính</Text>
-                            <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 20, paddingLeft: 20, paddingRight: 10 }}>
-                                <Pressable style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                                    <Ionicons name="shield-checkmark-outline" size={24} color="tomato" />
-                                    <Text style={{ marginLeft: 5 }}> Bảo hiểm của tôi</Text>
-                                </Pressable>
-                                <Pressable style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                                    <Text style={{ color: 'tomato', fontSize: 12 }}>Khám phá ngay!</Text>
-                                    <AntDesign style={{ marginLeft: 5 }} name="right" size={11} color="gainsboro" />
-                                </Pressable>
-                            </View>
-                        </View>
-                    </View>
-                    <View style={{
-                        marginTop: 10,
-                    }}>
-                        <View style={{
-                            paddingTop: 10,
-                            paddingBottom: 10,
-                            backgroundColor: 'white',
-                            paddingRight: 10,
-                        }}>
-                            <View style={{
-                                flexDirection: 'row',
-                                justifyContent: 'space-between',
-                                alignItems: 'center'
-                            }}>
-                                <Pressable>
-                                    <Text style={{ paddingLeft: 10, fontSize: 14, fontWeight: 'bold' }}>Tiện ích khác</Text>
-                                </Pressable>
-                                <Pressable style={{
-                                    flexDirection: 'row',
-                                    alignItems: 'center'
-                                }}>
-                                    <Text style={{ paddingLeft: 10, fontSize: 12 }}>Xem tất cả</Text>
-                                    <AntDesign style={{ marginLeft: 5 }} name="right" size={11} color="gainsboro" />
-                                </Pressable>
-                            </View>
-                            <View style={{
-                                paddingLeft: 10,
-                                paddingTop: 15,
-                                paddingBottom: 5,
+                            </Pressable>
+                            <Pressable style={{
+                                paddingLeft: 15,
                                 paddingRight: 10,
                                 flexDirection: 'row',
-                                justifyContent: 'space-between',
+                                width: 187,
+                                height: 50,
+                                backgroundColor: 'white',
+                                borderWidth: 1,
+                                borderColor: 'gainsboro',
+                                alignItems: 'center',
                             }}>
-                                <Pressable style={{
-                                    paddingLeft: 10,
-                                    flexDirection: 'row',
-                                    width: 190,
-                                    height: 35,
-                                    backgroundColor: 'white',
-                                    borderWidth: 1,
-                                    borderColor: 'gainsboro',
-                                    alignItems: 'center',
-                                }}>
-                                    <Text style={{ fontSize: 12 }}>Khách hàng thân thiết</Text>
-                                </Pressable>
-                                <Pressable style={{
-                                    paddingLeft: 10,
-                                    flexDirection: 'row',
-                                    width: 190,
-                                    height: 35,
-                                    backgroundColor: 'white',
-                                    borderWidth: 1,
-                                    borderColor: 'gainsboro',
-                                    justifyContent: 'space-between',
-                                    alignItems: 'center',
-                                }}>
-                                    <Text style={{ fontSize: 12 }}>Mua lại</Text>
-                                </Pressable>
-
-                            </View>
+                                <Fontisto name="money-symbol" size={24} color="tomato" />
+                                <Text style={{ fontSize: 14, paddingLeft: 10 }}>
+                                    {splitText('Số dư TK Shopee')}
+                                </Text>
+                            </Pressable>
                         </View>
-
+                        <View style={{
+                            paddingLeft: 15,
+                            paddingTop: 3,
+                            paddingBottom: 5,
+                            paddingRight: 8,
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                        }}>
+                            <Pressable style={{
+                                paddingLeft: 15,
+                                paddingRight: 20,
+                                flexDirection: 'row',
+                                width: 187,
+                                height: 50,
+                                backgroundColor: 'white',
+                                borderWidth: 1,
+                                borderColor: 'gainsboro',
+                                alignItems: 'center',
+                            }}>
+                                <Feather name="gift" size={24} color="aquamarine" />
+                                <View>
+                                    <Text style={{ fontSize: 14, paddingLeft: 10 }}>
+                                        {splitText('Săn thưởng Shopee')}
+                                    </Text>
+                                </View>
+                            </Pressable>
+                            <Pressable style={{
+                                paddingLeft: 15,
+                                paddingRight: 10,
+                                flexDirection: 'row',
+                                width: 187,
+                                height: 50,
+                                backgroundColor: 'white',
+                                borderWidth: 1,
+                                borderColor: 'gainsboro',
+                                alignItems: 'center',
+                            }}>
+                                <Feather name="shopping-bag" size={24} color="tomato" />
+                                <Text style={{ fontSize: 14, paddingLeft: 10 }}>
+                                    {splitText('Shopee Tiếp Thị Liên Kết')}
+                                </Text>
+                            </Pressable>
+                        </View>
                     </View>
-                    <View style={{
+
+                </View>
+                <View style={{
                         marginTop: 10,
                     }}>
                         <View style={{
                             paddingTop: 10,
+                            backgroundColor: 'white',
                             paddingBottom: 10,
-                            backgroundColor: 'white'
                         }}>
-                            <Text style={{ paddingLeft: 10, fontSize: 14, fontWeight: 'bold' }}>Dịch vụ tài chính</Text>
+                            <Text style={{ paddingLeft: 10, fontSize: 14, fontWeight: 'bold' }}>Hỗ trợ</Text>
+                            <Pressable style={{
+                                paddingTop: 20,
+                                paddingLeft: 20,
+                                flexDirection: 'row',
+                                alignItems: 'center',
+                                borderBottomWidth: 1,
+                                borderBottomColor: 'gainsboro',
+                                paddingBottom: 10,
+                            }}>
+                                <AntDesign name="questioncircleo" size={24} color="black" />
+                                <Text style={{ paddingLeft: 10, fontSize: 13 }}>Trung tâm trợ giúp </Text>
+                            </Pressable>
+                            <Pressable style={{
+                                paddingTop: 10,
+                                paddingLeft: 20,
+                                flexDirection: 'row',
+                                alignItems: 'center',
+                                paddingBottom: 10,
+                            }}>
+                                <Feather name="headphones" size={24} color="black" />
+                                <Text style={{ paddingLeft: 10, fontSize: 13 }}>Trò chuyện với Shopee </Text>
+                            </Pressable>
                         </View>
 
                     </View>
-                </ScrollView>
-            </View>
+            </ScrollView>
 
-        </View>
-    )
-}
+        </SafeAreaView>
+    );
+};
