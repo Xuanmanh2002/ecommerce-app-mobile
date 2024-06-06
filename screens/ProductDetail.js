@@ -295,7 +295,6 @@ export default function ProductDetail() {
             <Pressable style={{
               flexDirection: 'row',
               marginTop: 15,
-              flexDirection: 'row',
               alignItems: 'center',
               marginBottom: 15,
             }}>
@@ -447,19 +446,18 @@ export default function ProductDetail() {
                 alignItems: 'center',
               }}>
                 <Text style={{fontSize: 11, color: 'red'}}> 19,9k</Text>
-                <Text style={{fontSize: 11}}> Sản phẩm</Text>
-                <Text style={{fontSize: 11, color: 'red'}}> 4.8</Text>
-                <Text style={{fontSize: 11}}> Đánh giá</Text>
-                <Text style={{fontSize: 11, color: 'red'}}> 100% </Text>
-                <Text style={{fontSize: 11}}> Phản hồi Chat</Text>
+                <Text style={{fontSize: 11, paddingLeft: 5}}> Sản phẩm</Text>
+                <Text style={{fontSize: 11, color: 'red', paddingLeft: 10}}> 4.8</Text>
+                <Text style={{fontSize: 11, paddingLeft: 5}}> Đánh giá</Text>
+                <Text style={{fontSize: 11, color: 'red', paddingLeft: 10}}> 100% </Text>
+                <Text style={{fontSize: 11, paddingLeft: 5}}> Phản hồi Chat</Text>
               </View>
             </Pressable>
-
           </View>
         </View>
         <View style={{
           paddingTop: 10,
-          paddingBottom: 30,
+          paddingBottom: 50,
         }}>
           <View style={{
             backgroundColor: 'white',
